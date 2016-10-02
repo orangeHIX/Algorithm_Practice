@@ -1,9 +1,9 @@
 package com.creaty.javaclass.student_managment.cxf.test;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by hyx on 2016/1/15.

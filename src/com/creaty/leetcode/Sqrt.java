@@ -24,8 +24,8 @@ public class Sqrt {
     }
 
     public float sqrtByNewton(float x) {
-        float val = x;//×îÖÕ
-        float last;//±£´æÉÏÒ»¸ö¼ÆËãµÄÖµ
+        float val = x;//ï¿½ï¿½ï¿½ï¿½
+        float last;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
         do {
             last = val;
             val = (val + x / val) / 2;
@@ -44,25 +44,27 @@ public class Sqrt {
         y = y * (1.5f - xhalf * y * y); // Newton step, repeating increases accuracy
         return 1 / y;
     }
-    public double sqrtBitManipulation (int x){
+
+    public double sqrtBitManipulation(int x) {
         long ans = 0;
         long bit = 1l << 16;
-        while(bit > 0) {
+        while (bit > 0) {
             ans |= bit;
             if (ans * ans > x) {
                 ans ^= bit;
             }
             bit >>= 1;
         }
-        return (int)ans;
+        return (int) ans;
     }
+
     public static void main(String[] args) {
         Sqrt sqrt = new Sqrt();
         long start;
         long end;
         double result = 0;
         start = System.currentTimeMillis();
-        result = sqrt.mySqrt( 2147395599);
+        result = sqrt.mySqrt(2147395599);
         end = System.currentTimeMillis();
         System.out.println("" + result + " time: " + (end - start));
 
@@ -82,7 +84,7 @@ public class Sqrt {
         System.out.println("" + result + " time: " + (end - start));
 
         start = System.currentTimeMillis();
-        result = Math.sqrt( 2147395599);
+        result = Math.sqrt(2147395599);
         end = System.currentTimeMillis();
         System.out.println("" + result + " time: " + (end - start));
 

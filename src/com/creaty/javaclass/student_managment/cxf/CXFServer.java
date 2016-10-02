@@ -10,8 +10,8 @@ import javax.xml.ws.Endpoint;
 public class CXFServer {
     public static void main(String[] args) {
         System.out.println("web service start");
-        IStudentManager implementor= new CXFStudentManagerInMemory();
-        String address="http://localhost:8080/student_manager";
+        IStudentManager implementor = new CXFStudentManagerInMemory();
+        String address = "http://localhost:8080/student_manager";
         Endpoint.publish(address, implementor);
         System.out.println("web service started");
     }

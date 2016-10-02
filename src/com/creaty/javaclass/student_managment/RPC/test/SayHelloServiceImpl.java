@@ -6,12 +6,9 @@ package com.creaty.javaclass.student_managment.RPC.test;
 public class SayHelloServiceImpl implements SayHelloService {
     @Override
     public String sayHello(String helloArg) {
-        if(helloArg.equals("hello"))
-        {
+        if (helloArg.equals("hello")) {
             return "hello";
-        }
-        else
-        {
+        } else {
             return "bye bye";
         }
 

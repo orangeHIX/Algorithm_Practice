@@ -7,27 +7,27 @@ package com.creaty.interview;
  * Created by hyx on 2016/4/17.
  */
 public class Kangaroo {
-    public static void main(String[] args){
-        int[] k = new int[2000+1];
-        int num=0, lastNum = 1;
-        for(int i = 0; i < 2001; i++){
+    public static void main(String[] args) {
+        int[] k = new int[2000 + 1];
+        int num = 0, lastNum = 1;
+        for (int i = 0; i < 2001; i++) {
             num = lastNum;
-            for(int j = 4; j < 10; j++){
-                if(i-j < 0){
-                    if(i-j == -5){
+            for (int j = 4; j < 10; j++) {
+                if (i - j < 0) {
+                    if (i - j == -5) {
                         k[i] += 1;
                     }
-                }else{
+                } else {
                     k[i] += k[i - j];
                 }
             }
-            num +=  k[i];
-            if(i - 10 < 0 ) {
-                if(i-10 == -5) {
+            num += k[i];
+            if (i - 10 < 0) {
+                if (i - 10 == -5) {
                     num -= 1;
                 }
-            }else{
-                num -= k[i-10];
+            } else {
+                num -= k[i - 10];
             }
             lastNum = num;
         }

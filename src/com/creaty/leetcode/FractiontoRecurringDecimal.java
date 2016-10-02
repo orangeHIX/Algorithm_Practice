@@ -9,17 +9,17 @@ public class FractiontoRecurringDecimal {
 
     public String fractionToDeciaml(int numerator, int denominator) {
 
-        if(numerator == 0){
+        if (numerator == 0) {
             return "0";
         }
 
-        long divider = denominator; //³ýÊý
-        long dividend = numerator; //±»³ýÊý
+        long divider = denominator; //ï¿½ï¿½ï¿½ï¿½
+        long dividend = numerator; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         StringBuilder stringBuilder = new StringBuilder();
         HashMap<Long, Long> remainderMap = new HashMap<>();
         int offset = 0;
-        if ( numerator <0 ^ denominator < 0) {
+        if (numerator < 0 ^ denominator < 0) {
             //System.out.println("+-: "+numerator+","+denominator+","+numerator * denominator);
             stringBuilder.append('-');
             offset++;
@@ -27,8 +27,8 @@ public class FractiontoRecurringDecimal {
             divider = Math.abs(divider);
         }
 
-        long quotient = dividend / divider;       //ÉÌ
-        long remainder = dividend % divider;      //ÓàÊý
+        long quotient = dividend / divider;       //ï¿½ï¿½
+        long remainder = dividend % divider;      //ï¿½ï¿½ï¿½ï¿½
         //System.out.println("" + dividend + ", " + divider + ", " + quotient + ", " + remainder);
 
         stringBuilder.append(quotient);

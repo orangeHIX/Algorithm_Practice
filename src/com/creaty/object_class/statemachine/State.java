@@ -5,13 +5,28 @@ package com.creaty.object_class.statemachine;
  */
 public interface State {
 
-    default void entry(){};
-    default void exit(){};
-    default void doWhileTrue(){};
-    /**处理事件
+    default void entry() {
+    }
+
+    ;
+
+    default void exit() {
+    }
+
+    ;
+
+    default void doWhileTrue() {
+    }
+
+    ;
+
+    /**
+     * 处理事件
+     *
      * @param context 状态机
-     * @param event 要处理的事件
-     * @return 事件是否已经被处理*/
+     * @param event   要处理的事件
+     * @return 事件是否已经被处理
+     */
     boolean handle(Context context, Object event);
 
 }

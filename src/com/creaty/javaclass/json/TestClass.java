@@ -1,9 +1,5 @@
 package com.creaty.javaclass.json;
 
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.util.Arrays;
 
 /**
@@ -41,9 +37,10 @@ class TestClass {
     @MySerialize
     TestClass testClass2;
 
-    public TestClass(){
+    public TestClass() {
 
     }
+
     public TestClass(byte a, short b, int c, long d, float e,
                      double f, char g, boolean h,
                      Byte a1, Short b2, Integer c3, Long d4,
@@ -72,7 +69,7 @@ class TestClass {
                      Byte a1, Short b2, Integer c3, Long d4,
                      Float e5, Double f6, Character g7, Boolean h8, String i9,
                      int[] array) {
-        this(a,b,c,d,e,f,g,h,a1,b2,c3,d4,e5,f6,g7,h8,i9);
+        this(a, b, c, d, e, f, g, h, a1, b2, c3, d4, e5, f6, g7, h8, i9);
         this.array = array;
     }
 
@@ -81,7 +78,7 @@ class TestClass {
                      Byte a1, Short b2, Integer c3, Long d4,
                      Float e5, Double f6, Character g7, Boolean h8, String i9,
                      int[] array, TestClass testclass2) {
-        this(a,b,c,d,e,f,g,h,a1,b2,c3,d4,e5,f6,g7,h8,i9,array);
+        this(a, b, c, d, e, f, g, h, a1, b2, c3, d4, e5, f6, g7, h8, i9, array);
         this.testClass2 = testclass2;
     }
 
@@ -272,7 +269,7 @@ class TestClass {
             System.out.println(josnString);
 
 
-            TestClass t2 = (TestClass)MyJSONObject.toObject(TestClass.class, josnString);
+            TestClass t2 = (TestClass) MyJSONObject.toObject(TestClass.class, josnString);
             System.out.println(t2);
 
             TestClass t3 = new TestClass((byte) 1, (short) 1, 1, 1, 1.0f, 1.0, 'a', true,

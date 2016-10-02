@@ -1,6 +1,5 @@
 package com.creaty.javaclass.student_managment;
 
-import javax.jws.WebService;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -100,7 +99,7 @@ public class StudentManagerInMemory implements IStudentManager {
         return this.toString();
     }
 
-    public void printStudentList(){
+    public void printStudentList() {
         System.out.println(getStudentListString());
     }
 
@@ -110,7 +109,7 @@ public class StudentManagerInMemory implements IStudentManager {
         return "studentList=" + studentArrayList;
     }
 
-    public static void main(String[] args) throws RemoteException{
+    public static void main(String[] args) throws RemoteException {
         StudentManagerInMemory sm = new StudentManagerInMemory();
         sm.addStudent(new Student("张三", "001", "123"));
         sm.addStudent(new Student("张三", "001", "123"));

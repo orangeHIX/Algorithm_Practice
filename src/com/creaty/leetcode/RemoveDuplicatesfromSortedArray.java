@@ -17,19 +17,20 @@ import java.util.Arrays;
 public class RemoveDuplicatesfromSortedArray {
     public static int removeDuplicates(int[] nums) {
 
-        if(nums.length < 1)
+        if (nums.length < 1)
             return 0;
         int curr = 0;
         //int curr = nums[0];
-        for(int i = 1; i< nums.length; i++){
-            if(nums[i] != nums[i-1]){
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
                 nums[++curr] = nums[i];
             }
         }
-        return curr+1;// == 0 ? 1 : place;
+        return curr + 1;// == 0 ? 1 : place;
     }
+
     public static void main(String[] args) {
-        int[] array = new int[]{1,2};
+        int[] array = new int[]{1, 2};
         System.out.println(RemoveDuplicatesfromSortedArray.removeDuplicates(array));
         System.out.println(Arrays.toString(array));
     }

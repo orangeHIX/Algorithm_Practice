@@ -19,12 +19,12 @@ class MyJSONStringTokener {
 
     private MyJSONStringTokener(String JSONString) {
         JSONString = JSONString.trim();
-        if ( (JSONString.startsWith("{") && JSONString.endsWith("}") )
-                || ( JSONString.startsWith("[") &&JSONString.endsWith("]") )) {
+        if ((JSONString.startsWith("{") && JSONString.endsWith("}"))
+                || (JSONString.startsWith("[") && JSONString.endsWith("]"))) {
             subStr = JSONString.substring(1, JSONString.length() - 1).trim();
-            if(subStr.isEmpty()){
+            if (subStr.isEmpty()) {
                 hasNext = false;
-            }else {
+            } else {
                 hasNext = true;
                 stack = new char[subStr.length()];
                 top = 0;
@@ -45,12 +45,12 @@ class MyJSONStringTokener {
                     stack[top++] = cur;
                     break;
                 case '}':
-                    if (stack[top - 1] =='{') {
+                    if (stack[top - 1] == '{') {
                         top--;
                     }
                     break;
                 case ']':
-                    if (stack[top - 1] =='[') {
+                    if (stack[top - 1] == '[') {
                         top--;
                     }
                     break;

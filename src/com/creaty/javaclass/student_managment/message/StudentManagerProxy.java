@@ -21,7 +21,7 @@ public class StudentManagerProxy implements IStudentManager {
     public boolean addStudent(Student student) throws RemoteException {
         if (studentManager.addStudent(student)) {
             try {
-                MessageSender.send("added Student successfully: " +student);
+                MessageSender.send("added Student successfully: " + student);
             } catch (Exception e) {
                 e.printStackTrace();
             }

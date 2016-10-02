@@ -13,7 +13,7 @@ public class WashingInterrupt implements State {
 
     @Override
     public boolean handle(Context context, Object event) {
-        if (event == WashMachine.CLOSE_DOOR){
+        if (event == WashMachine.CLOSE_DOOR) {
             context.recover();
             return true;
         }

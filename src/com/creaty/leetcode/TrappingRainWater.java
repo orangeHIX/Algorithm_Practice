@@ -100,17 +100,17 @@ public class TrappingRainWater {
         }
         int rightHeightest = 0;
         for (int i = height.length - 1; i >= 0; i--) {
-            if (height[i]+water[i] > rightHeightest) {
-                water[i] = rightHeightest-height[i];
-                if(water[i] < 0){
+            if (height[i] + water[i] > rightHeightest) {
+                water[i] = rightHeightest - height[i];
+                if (water[i] < 0) {
                     water[i] = 0;
                     rightHeightest = height[i];
                 }
             }
         }
-        int sum =0;
-        for(int i = 0; i < height.length; i++){
-            sum+=water[i];
+        int sum = 0;
+        for (int i = 0; i < height.length; i++) {
+            sum += water[i];
         }
         System.out.println(sum);
         return sum;

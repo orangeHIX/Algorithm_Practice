@@ -25,7 +25,7 @@ public class RPCServer {
         services.put(IStudentManager.class.getName(), new StudentManagerInMemory());    //服务器的StudentManager服务在内存中操作
     }
 
-    public static Map getServices(){
+    public static Map getServices() {
         return services;
     }
 
@@ -51,7 +51,8 @@ public class RPCServer {
             }
         }
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         new RPCServer().runServer();
     }
 

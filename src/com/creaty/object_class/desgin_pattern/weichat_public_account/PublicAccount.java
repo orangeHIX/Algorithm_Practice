@@ -11,7 +11,7 @@ public class PublicAccount extends User implements IPublisher {
 
     List<IFollow> followList;
 
-    public PublicAccount( String name) {
+    public PublicAccount(String name) {
         super(name);
         this.followList = new ArrayList<>();
     }

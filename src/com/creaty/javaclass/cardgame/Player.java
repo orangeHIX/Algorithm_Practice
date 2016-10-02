@@ -1,11 +1,8 @@
 package com.creaty.javaclass.cardgame;
 
-import javafx.collections.transformation.SortedList;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by hyx on 2015/12/6.
@@ -27,25 +24,25 @@ public class Player {
         }
     }
 
-    public Card swapCard( int index, Card newCard) {
-        if (newCard != null && index > 0 && index <cardlist.size()) {
-            Card c =cardlist.get(index);
+    public Card swapCard(int index, Card newCard) {
+        if (newCard != null && index > 0 && index < cardlist.size()) {
+            Card c = cardlist.get(index);
             cardlist.set(index, newCard);
             return c;
         }
         return null;
     }
 
-    public void sortCards(){
+    public void sortCards() {
         cardlist.sort(new Comparator<Card>() {
             @Override
             public int compare(Card o1, Card o2) {
-                return o1.getValue()-o2.getValue();
+                return o1.getValue() - o2.getValue();
             }
         });
     }
 
-    public int getCardNum(){
+    public int getCardNum() {
         return cardlist.size();
     }
 

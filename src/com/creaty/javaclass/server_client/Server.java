@@ -5,7 +5,6 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -13,10 +12,10 @@ import java.util.Date;
  */
 public class Server {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             ServerSocket ss = new ServerSocket(30000);
-            while (true){
+            while (true) {
                 Socket s = ss.accept();
                 PrintStream ps = new PrintStream(s.getOutputStream());
                 SimpleDateFormat dateFormat = new SimpleDateFormat(("yyyy年MM月dd日 HH时mm分ss秒"));
@@ -24,7 +23,7 @@ public class Server {
                 ps.close();
                 s.close();
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

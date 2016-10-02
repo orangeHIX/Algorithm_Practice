@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ÅĞ¶Ï0-2000Ö®¼äÓĞ¶àÉÙ¸öËØÊı£¬²¢Êä³öÕâĞ©ËØÊı
+ * ï¿½Ğ¶ï¿½0-2000Ö®ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ©ï¿½ï¿½ï¿½ï¿½
  * Created by hyx on 2015/11/8.
  */
 public class PrimeNumberDigger {
 
     private static boolean isPrimeNumber(ArrayList<Integer> primeNumberTable, int test) {
-        int sqrtTestNum = (int)Math.sqrt(test)+1;
+        int sqrtTestNum = (int) Math.sqrt(test) + 1;
         for (Integer prime : primeNumberTable) {
             if (prime > sqrtTestNum) {
                 break;
@@ -23,18 +23,19 @@ public class PrimeNumberDigger {
 
     public static ArrayList<Integer> findAllPrimeNumber(int limit) {
         ArrayList<Integer> primeNumberTable = new ArrayList<>();
-        if(limit<2){
+        if (limit < 2) {
             return primeNumberTable;
         }
         primeNumberTable.add(2);
         for (int n = 3; n <= limit; n += 2) {
-            if (isPrimeNumber(primeNumberTable,n)) {
+            if (isPrimeNumber(primeNumberTable, n)) {
                 primeNumberTable.add(n);
             }
         }
-        System.out.println("There are "+primeNumberTable.size()+" prime numbers from 0 to "+limit);
+        System.out.println("There are " + primeNumberTable.size() + " prime numbers from 0 to " + limit);
         return primeNumberTable;
     }
+
     public static void main(String[] args) {
         List<Integer> list = PrimeNumberDigger.findAllPrimeNumber(2000);
         System.out.println(list);

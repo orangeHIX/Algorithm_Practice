@@ -8,7 +8,7 @@ import com.creaty.javaclass.student_managment.StudentManagerInMemory;
  */
 public class SenderTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Console console = new Console(new StudentManagerProxy(new StudentManagerInMemory()));
         console.start();
     }

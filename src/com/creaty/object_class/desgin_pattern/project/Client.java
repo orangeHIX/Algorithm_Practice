@@ -5,7 +5,7 @@ package com.creaty.object_class.desgin_pattern.project;
  */
 public class Client {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Worker a = new Worker("a");
         Worker b = new Worker("b");
         Worker c = new Worker("c");
@@ -49,10 +49,10 @@ public class Client {
         la.addSubProject(C);
         la.addSubProject(D);
         System.out.print(root.getInfo());
-        for(Project project : root.getSubProject()) {
+        for (Project project : root.getSubProject()) {
             System.out.print(project.getInfo());
         }
-        for(Project project : la.getSubProject()) {
+        for (Project project : la.getSubProject()) {
             System.out.print(project.getInfo());
         }
     }

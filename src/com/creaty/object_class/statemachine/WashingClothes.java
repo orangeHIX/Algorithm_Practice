@@ -62,9 +62,9 @@ public class WashingClothes extends Context implements State {
 
         @Override
         public boolean handle(Context context, Object event) {
-            if(state.handle(this, event)){
+            if (state.handle(this, event)) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
         }

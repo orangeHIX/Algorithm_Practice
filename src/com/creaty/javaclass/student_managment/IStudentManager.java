@@ -9,7 +9,7 @@ import java.util.List;
  * Created by hyx on 2015/12/6.
  */
 @WebService
-public interface IStudentManager extends Remote{
+public interface IStudentManager extends Remote {
 
     boolean addStudent(Student student) throws RemoteException;
 
@@ -23,15 +23,15 @@ public interface IStudentManager extends Remote{
 
     Student updateStudentID(String ID, String newID) throws RemoteException;
 
-    Student updateStudentName(String ID, String newName)throws RemoteException;
+    Student updateStudentName(String ID, String newName) throws RemoteException;
 
-    Student updateStudentTel(String ID, String newTel)throws RemoteException;
+    Student updateStudentTel(String ID, String newTel) throws RemoteException;
 
     Student findStudentByID(String id) throws RemoteException;
 
-    List<Student> findStudentByTel(String tel)throws RemoteException;
+    List<Student> findStudentByTel(String tel) throws RemoteException;
 
-    List<Student> findStudentByName(String name)throws RemoteException;
+    List<Student> findStudentByName(String name) throws RemoteException;
 
-    String getStudentListString()throws RemoteException;
+    String getStudentListString() throws RemoteException;
 }

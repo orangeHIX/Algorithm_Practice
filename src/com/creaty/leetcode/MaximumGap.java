@@ -64,7 +64,7 @@ public class MaximumGap {
         biger = max + 1;
         smaller = min - 1;
         int sectionNum = nums.length;
-        int sectionLen = (max-min)/sectionNum+1;
+        int sectionLen = (max - min) / sectionNum + 1;
         int sectionMin[] = new int[sectionNum];
         int sectionMax[] = new int[sectionNum];
         for (int i = 0; i < sectionNum; i++) {
@@ -87,11 +87,11 @@ public class MaximumGap {
         int gap = 0, k = 0;
         int p = min;
         int b;
-        while ( k < sectionNum ) {
+        while (k < sectionNum) {
             b = sectionMin[k];
-            if(b == biger) {
+            if (b == biger) {
 
-            }else {
+            } else {
                 if (gap < b - p) {
                     gap = b - p;
                 }
@@ -104,6 +104,6 @@ public class MaximumGap {
     }
 
     public static void main(String[] args) {
-        new MaximumGap().maximumGap2(new int[]{1,1000000});
+        new MaximumGap().maximumGap2(new int[]{1, 1000000});
     }
 }

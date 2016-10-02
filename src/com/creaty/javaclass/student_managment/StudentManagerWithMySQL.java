@@ -207,7 +207,7 @@ public class StudentManagerWithMySQL implements IStudentManager {
         return "studentList=" + findStudent(findAllStatement, null);
     }
 
-    public void printStudentList(){
+    public void printStudentList() {
         System.out.println(getStudentListString());
     }
 

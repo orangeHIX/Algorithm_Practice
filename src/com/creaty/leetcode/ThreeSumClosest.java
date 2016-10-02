@@ -57,7 +57,7 @@ public class ThreeSumClosest {
 
     public static void main(String[] args) {
 
-        int[] nums = new int[]{1,1,1,0};
+        int[] nums = new int[]{1, 1, 1, 0};
         //int target = 9;
         System.out.println(new ThreeSumClosest().threeSumClosest(nums, -100));
     }

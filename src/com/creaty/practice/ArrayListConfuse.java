@@ -2,8 +2,9 @@ package com.creaty.practice;
 
 import java.util.ArrayList;
 
-class A{
+class A {
     public int i;
+
     @Override
     public String toString() {
         return "A{" +
@@ -14,7 +15,7 @@ class A{
 
 public class ArrayListConfuse {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         A a = new A();
         a.i = 3;
@@ -33,6 +34,6 @@ public class ArrayListConfuse {
 
         System.out.println("after:");
         System.out.println("list1: " + list1);
-        System.out.println("list2: "+list1);
+        System.out.println("list2: " + list1);
     }
 }

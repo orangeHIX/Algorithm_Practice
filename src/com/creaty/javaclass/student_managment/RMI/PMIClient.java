@@ -1,7 +1,7 @@
 package com.creaty.javaclass.student_managment.RMI;
 
-import com.creaty.javaclass.student_managment.IStudentManager;
 import com.creaty.javaclass.student_managment.Console;
+import com.creaty.javaclass.student_managment.IStudentManager;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -11,18 +11,18 @@ import java.rmi.registry.Registry;
  */
 public class PMIClient {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 //        if (System.getSecurityManager() == null) {
 //            System.setSecurityManager(new SecurityManager());
 //        }
         try {
             String name = IStudentManager.class.getName();
             Registry registry = LocateRegistry.getRegistry();
-            IStudentManager studentManager = (IStudentManager)registry.lookup(name);
+            IStudentManager studentManager = (IStudentManager) registry.lookup(name);
 
             Console studentManagementConsole = new Console(studentManager);
             studentManagementConsole.start();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -1,25 +1,23 @@
 package com.creaty.javaclass.student_managment.message;
-import java.util.Properties;
 
 import javax.mail.Authenticator;
 import javax.mail.Message.RecipientType;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * 发送邮件的测试程序
  *
  * @author lwq
- *
  */
 public class MailSender {
 
 
-    public static void sendMail(String content) throws Exception{
+    public static void sendMail(String content) throws Exception {
         // 配置发送邮件的环境属性
         final Properties props = new Properties();
         /*
@@ -69,7 +67,7 @@ public class MailSender {
         message.setSubject("测试邮件");
 
         // 设置邮件的内容体
-        message.setContent(""+content, "text/html;charset=UTF-8");
+        message.setContent("" + content, "text/html;charset=UTF-8");
 
         // 发送邮件
         Transport.send(message);

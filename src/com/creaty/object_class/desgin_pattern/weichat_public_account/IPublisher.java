@@ -5,6 +5,8 @@ package com.creaty.object_class.desgin_pattern.weichat_public_account;
  */
 public interface IPublisher {
     public boolean registerFollower(IFollow follower);
+
     public boolean unregisterFollower(IFollow follower);
+
     public void sendMessageToFollowers(Message message);
 }

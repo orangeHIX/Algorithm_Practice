@@ -7,7 +7,6 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Connection;
 
 /**
  * Created by hyx on 2016/1/15.

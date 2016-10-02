@@ -1,19 +1,19 @@
 package com.creaty.javaclass.student_managment.RPC;
 
-import com.creaty.javaclass.student_managment.RPC.RPCServer;
-
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
 /**
  * Created by hyx on 2016/1/15.
  */
-public class RPCServerThread implements Runnable{
+public class RPCServerThread implements Runnable {
 
     Socket socket;
 
-    public RPCServerThread(Socket socket) throws IOException{
+    public RPCServerThread(Socket socket) throws IOException {
         this.socket = socket;
     }
 
@@ -22,13 +22,13 @@ public class RPCServerThread implements Runnable{
 
         try (ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
              ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream())
-        ){
+        ) {
 
             String interfacename = input.readUTF();
             String methodName = input.readUTF();
 
             Class<?>[] parameterTypes = (Class<?>[]) input.readObject();
-            Object[] arguments = (Object[])input.readObject();
+            Object[] arguments = (Object[]) input.readObject();
 
             Class serviceinterfaceclass = Class.forName(interfacename);
 
@@ -39,11 +39,11 @@ public class RPCServerThread implements Runnable{
             Object result = method.invoke(service, arguments);
 
             output.writeObject(result);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(socket != null){
+        if (socket != null) {
             try {
                 socket.close();
             } catch (IOException e) {

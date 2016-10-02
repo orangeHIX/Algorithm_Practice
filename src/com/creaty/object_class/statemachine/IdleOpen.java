@@ -1,6 +1,7 @@
 package com.creaty.object_class.statemachine;
 
-/** 空闲门开状态
+/**
+ * 空闲门开状态
  * Created by hyx on 2015/11/13.
  */
 public class IdleOpen implements State {

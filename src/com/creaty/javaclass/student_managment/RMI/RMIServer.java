@@ -3,7 +3,6 @@ package com.creaty.javaclass.student_managment.RMI;
 import com.creaty.javaclass.student_managment.IStudentManager;
 import com.creaty.javaclass.student_managment.StudentManagerInMemory;
 
-
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

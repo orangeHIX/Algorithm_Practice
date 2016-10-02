@@ -7,29 +7,29 @@ import java.util.HashMap;
 /**
  * Given a string of numbers and operators, return all possible results from computing
  * all the different possible ways to group numbers and operators. The valid operators are +, - and *.<br/>
- <br/>
-
- Example 1 <br/>
- Input: "2-1-1". <br/>
- ((2-1)-1) = 0 <br/>
- (2-(1-1)) = 2 <br/>
- <br/>
-
- Output: [0, 2] <br/>
- <br/>
-
- Example 2 <br/>
- Input: "2*3-4*5" <br/>
- (2*(3-(4*5))) = -34 <br/>
- ((2*3)-(4*5)) = -14 <br/>
- ((2*(3-4))*5) = -10 <br/>
- (2*((3-4)*5)) = -10 <br/>
- (((2*3)-4)*5) = 10 <br/>
- <br/>
-
- Output: [-34, -14, -10, -10, 10]<br/>
- <br/>
-
+ * <br/>
+ * <p>
+ * Example 1 <br/>
+ * Input: "2-1-1". <br/>
+ * ((2-1)-1) = 0 <br/>
+ * (2-(1-1)) = 2 <br/>
+ * <br/>
+ * <p>
+ * Output: [0, 2] <br/>
+ * <br/>
+ * <p>
+ * Example 2 <br/>
+ * Input: "2*3-4*5" <br/>
+ * (2*(3-(4*5))) = -34 <br/>
+ * ((2*3)-(4*5)) = -14 <br/>
+ * ((2*(3-4))*5) = -10 <br/>
+ * (2*((3-4)*5)) = -10 <br/>
+ * (((2*3)-4)*5) = 10 <br/>
+ * <br/>
+ * <p>
+ * Output: [-34, -14, -10, -10, 10]<br/>
+ * <br/>
+ * <p>
  * Created by hyx on 2015/10/10.
  */
 public class DifferentWaystoAddParentheses {

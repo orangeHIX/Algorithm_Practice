@@ -36,12 +36,11 @@ public class Landlords extends CardGame {
     }
 
     private void chooseLandlord() {
-        landlord =  playerList.get((int)(new Random().nextFloat()*3));
-        landlord.receiveCard(cardList.get(cardList.size()-1));
-        landlord.receiveCard(cardList.get(cardList.size()-2));
-        landlord.receiveCard(cardList.get(cardList.size()-3));
+        landlord = playerList.get((int) (new Random().nextFloat() * 3));
+        landlord.receiveCard(cardList.get(cardList.size() - 1));
+        landlord.receiveCard(cardList.get(cardList.size() - 2));
+        landlord.receiveCard(cardList.get(cardList.size() - 3));
     }
-
 
 
     public static void main(String[] args) {

@@ -11,7 +11,7 @@ import java.net.Socket;
  */
 public class Client {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         String interfacename = SayHelloService.class.getName();
         Socket socket = null;
@@ -28,14 +28,14 @@ public class Client {
             ObjectInputStream input = new ObjectInputStream(socket.getInputStream());
             Object result = input.readObject();
             System.out.println(result);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 if (socket != null) {
                     socket.close();
                 }
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

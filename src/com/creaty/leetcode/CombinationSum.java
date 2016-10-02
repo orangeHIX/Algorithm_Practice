@@ -1,6 +1,5 @@
 package com.creaty.leetcode;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -14,7 +13,7 @@ import java.util.List;
  * Note:
  * <p>
  * ?All numbers (including target) will be positive integers.
- * ?Elements in a combination (a1, a2, ¡­ , ak) must be in non-descending order. (ie, a1 ¡Ü a2 ¡Ü ¡­ ¡Ü ak).
+ * ?Elements in a combination (a1, a2, ï¿½ï¿½ , ak) must be in non-descending order. (ie, a1 ï¿½ï¿½ a2 ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ak).
  * ?The solution set must not contain duplicate combinations.
  * <p>
  * <p>
@@ -31,25 +30,25 @@ public class CombinationSum {
     int[] occurrence;
     List<List<Integer>> solutions = new ArrayList<>();
 
-    private void addNumFromCandidates(int index, LinkedList<Integer> set,  int sum) {
+    private void addNumFromCandidates(int index, LinkedList<Integer> set, int sum) {
         if (index < candidates.length) {
             LinkedList<Integer> newSet = new LinkedList<>(set);
-            do{
-                if(sum == target){
+            do {
+                if (sum == target) {
                     solutions.add(newSet);
                     break;
                 }
-                addNumFromCandidates(index+1, newSet, sum);
+                addNumFromCandidates(index + 1, newSet, sum);
                 newSet.add(candidates[index]);
                 sum = sum + candidates[index];
-            }while(sum <= target);
+            } while (sum <= target);
         }
     }
 
-    private List<Integer> getResultSet(){
-        ArrayList<Integer> list  = new ArrayList<>();
-        for(int i = 0; i < candidates.length; i++){
-            for(int j = 0; j < occurrence[i]; j++){
+    private List<Integer> getResultSet() {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < candidates.length; i++) {
+            for (int j = 0; j < occurrence[i]; j++) {
                 list.add(candidates[i]);
             }
         }
@@ -59,16 +58,16 @@ public class CombinationSum {
     private void addNumFromCandidates(int index, int sum) {
         if (index < candidates.length) {
             int j = 0;
-            do{
-                if(sum == target){
+            do {
+                if (sum == target) {
                     solutions.add(getResultSet());
                     break;
                 }
-                addNumFromCandidates(index+1, sum);
+                addNumFromCandidates(index + 1, sum);
                 occurrence[index]++;
                 sum = sum + candidates[index];
                 j++;
-            }while(sum <= target);
+            } while (sum <= target);
 
             occurrence[index] -= j;
         }
@@ -81,7 +80,7 @@ public class CombinationSum {
         occurrence = new int[candidates.length];
         solutions.clear();
 
-        addNumFromCandidates(0,0);
+        addNumFromCandidates(0, 0);
         return solutions;
     }
 

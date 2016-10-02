@@ -23,6 +23,6 @@ public class Client {
 
         Peking.sendMessageToFollowers(new PushMessage(Peking, "欢迎2"));
 
-        PekingWuxi.sendMessageToFollowers(new PushMessage(PekingWuxi,"hello"));
+        PekingWuxi.sendMessageToFollowers(new PushMessage(PekingWuxi, "hello"));
     }
 }

@@ -70,7 +70,7 @@ public class Console {
             log(DESCIPTION);
             try {
                 handleInputArgs();
-            }catch (RemoteException e){
+            } catch (RemoteException e) {
                 e.printStackTrace();
             }
             scanner.close();
@@ -81,7 +81,7 @@ public class Console {
     }
 
 
-    private void addStudent(String... args) throws RemoteException{
+    private void addStudent(String... args) throws RemoteException {
         if (args.length > 1) {
             Student s = new Student(args[1], args[2], args[3]);
             curr = new ArrayList<>();
@@ -97,7 +97,7 @@ public class Console {
 
     }
 
-    private void removeStudent(String... args) throws RemoteException{
+    private void removeStudent(String... args) throws RemoteException {
         if (args.length > 2) {
             boolean isSucceed = false;
             switch (args[1]) {
@@ -123,7 +123,7 @@ public class Console {
         }
     }
 
-    private void updateStudent(String... args)throws RemoteException {
+    private void updateStudent(String... args) throws RemoteException {
         if (args.length > 3) {
             Student stu = null;
             switch (args[2]) {
@@ -151,7 +151,7 @@ public class Console {
         }
     }
 
-    private void findStudent(String... args)throws RemoteException {
+    private void findStudent(String... args) throws RemoteException {
         if (args.length > 2) {
             boolean isSucceed = false;
             Student s;
@@ -188,7 +188,7 @@ public class Console {
         }
     }
 
-    private void printStudent(String... args) throws RemoteException{
+    private void printStudent(String... args) throws RemoteException {
         log("student list: ");
         log(studentManager.getStudentListString());
     }
@@ -200,7 +200,7 @@ public class Console {
 //        return false;
 //    }
 
-    private void handleInputArgs() throws RemoteException{
+    private void handleInputArgs() throws RemoteException {
         String command;
         String[] tokens;
         log("You can input command (like " + Arrays.toString(commands) + ") now:");
@@ -234,7 +234,7 @@ public class Console {
     }
 
     public void log(String info) {
-        if(printStream != null) {
+        if (printStream != null) {
             printStream.println(info);
         }
     }

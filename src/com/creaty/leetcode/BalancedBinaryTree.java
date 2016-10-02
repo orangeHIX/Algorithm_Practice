@@ -8,7 +8,7 @@ import com.creaty.leetcode.utility.TreeNode;
 public class BalancedBinaryTree {
 
 
-    /***
+    /**
      * @return root树的深度
      */
     public static int getHeightifBalanced(TreeNode root) {
@@ -27,7 +27,7 @@ public class BalancedBinaryTree {
     }
 
     public static boolean isBalanced(TreeNode root) {
-        if (getHeightifBalanced(root)>=0){
+        if (getHeightifBalanced(root) >= 0) {
             return true;
         }
         return false;

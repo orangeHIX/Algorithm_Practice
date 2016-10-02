@@ -12,7 +12,7 @@ public class Upgrade extends CardGame {
     Player Republicans;
     List<Card> tableCards;
 
-    public Upgrade(){
+    public Upgrade() {
         tableCards = new ArrayList<>();
     }
 
@@ -31,13 +31,14 @@ public class Upgrade extends CardGame {
     }
 
     private void chooseCardDealer() {
-        Republicans =  playerList.get((int)(new Random().nextFloat()*4));
-        for(int i = 0; i < 6; i++) {
+        Republicans = playerList.get((int) (new Random().nextFloat() * 4));
+        for (int i = 0; i < 6; i++) {
             //换牌
-            int index = (int)(new Random().nextFloat()*Republicans.getCardNum());
+            int index = (int) (new Random().nextFloat() * Republicans.getCardNum());
             Republicans.swapCard(index, cardList.get(cardList.size() - i - 1));
         }
     }
+
     @Override
     protected void dealCard() {
         int cardListSize = cardList.size();
@@ -61,6 +62,7 @@ public class Upgrade extends CardGame {
         super.printGame();
         System.out.println("底牌：" + tableCards);
     }
+
     public static void main(String[] args) {
         CardGame cg = new Upgrade();
         cg.begin();

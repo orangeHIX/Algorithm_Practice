@@ -7,7 +7,7 @@ import com.creaty.javaclass.student_managment.Console;
  */
 public class RPCClient {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Console console = new Console(new StudentManagerRPC());
         console.start();
     }

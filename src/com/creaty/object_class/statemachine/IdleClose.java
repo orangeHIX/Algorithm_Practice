@@ -1,6 +1,7 @@
 package com.creaty.object_class.statemachine;
 
-/** 空闲门关状态
+/**
+ * 空闲门关状态
  * Created by hyx on 2015/11/13.
  */
 public class IdleClose implements State {
@@ -8,7 +9,7 @@ public class IdleClose implements State {
 
     @Override
     public void entry() {
-        System.out.println(this.getClass().getName()+": entry()");
+        System.out.println(this.getClass().getName() + ": entry()");
         System.out.println("关指示灯");
     }
 

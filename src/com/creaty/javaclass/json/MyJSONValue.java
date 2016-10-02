@@ -14,7 +14,7 @@ class MyJSONValue {
             float.class, double.class, boolean.class};
 
 
-    public static String toJSONValueString(Object value){
+    public static String toJSONValueString(Object value) {
 
         if (value == null) {
             return "null";
@@ -40,13 +40,13 @@ class MyJSONValue {
         if (valueClass == char.class || valueClass == Character.class) {
             return value.toString();
         }
-        if( valueClass == String.class){
-            return "\""+value+"\"";
+        if (valueClass == String.class) {
+            return "\"" + value + "\"";
         }
         return MyJSONObject.toJSONString(value);
     }
 
-    public static Object toValueObject(Class valueClass, String str){
+    public static Object toValueObject(Class valueClass, String str) {
         if (str == null || str.compareTo("null") == 0 || valueClass == null) {
             return null;
         }
@@ -77,8 +77,8 @@ class MyJSONValue {
         if (valueClass == char.class || valueClass == Character.class) {
             return str.charAt(0);
         }
-        if( valueClass == String.class){
-            return str.substring(1,str.length()-1);
+        if (valueClass == String.class) {
+            return str.substring(1, str.length() - 1);
         }
         return MyJSONObject.toObject(valueClass, str);
     }

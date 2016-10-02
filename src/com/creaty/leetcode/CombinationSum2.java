@@ -36,7 +36,7 @@ public class CombinationSum2 {
             occurrence[index]--;
             sum = sum - candidates[index];
             int i = 1;
-            while(index+i < candidates.length && candidates[index] == candidates[index + i]){
+            while (index + i < candidates.length && candidates[index] == candidates[index + i]) {
                 i++;
             }
             addNumFromCandidates(index + i, sum);

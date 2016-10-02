@@ -5,11 +5,11 @@ package com.creaty.algorithm;
  */
 public class Investment {
 
-    public static int solve2(int[][] benefit, int maxMoney, int numProject){
+    public static int solve2(int[][] benefit, int maxMoney, int numProject) {
         int F[][] = new int[numProject][];
-        int sign[][] =  new int[numProject][];
+        int sign[][] = new int[numProject][];
 
-        int max_j = (int)Math.floor(Math.sqrt((double)maxMoney));
+        int max_j = (int) Math.floor(Math.sqrt((double) maxMoney));
         //System.out.println(max_j);
 
         for (int i = 0; i < numProject; i++) {
@@ -19,7 +19,7 @@ public class Investment {
 
         System.out.println("k = 1:");
         for (int j = 0; j <= maxMoney; j++) {
-            int k =  (int)Math.floor(Math.sqrt((double)j));
+            int k = (int) Math.floor(Math.sqrt((double) j));
             F[0][j] = benefit[0][k];
             sign[0][j] = k;
             System.out.printf("F_%d(%d) = %d,\n", 1, j, F[0][j]);
@@ -30,9 +30,9 @@ public class Investment {
             for (int j = 0; j <= maxMoney; j++) {
                 System.out.printf("F_%d(%d) = max{ ", i + 1, j);
                 int max_F_i_j = Integer.MIN_VALUE;
-                for (int k = 0; k*k <= j; k++) {
-                    int candidate = benefit[i][k] + F[i - 1][j - k*k];
-                    System.out.printf("g_%d(%d) + F_%d(%d),", i + 1, k, i, j - k*k);
+                for (int k = 0; k * k <= j; k++) {
+                    int candidate = benefit[i][k] + F[i - 1][j - k * k];
+                    System.out.printf("g_%d(%d) + F_%d(%d),", i + 1, k, i, j - k * k);
                     if (F[i][j] < candidate) {
                         F[i][j] = candidate;
                         sign[i][j] = k;
@@ -46,7 +46,7 @@ public class Investment {
 
         for (int j = 0; j <= maxMoney; j++) {
             for (int i = 0; i < numProject; i++) {
-                System.out.printf("%d\t%d\t",F[i][j],sign[i][j]);
+                System.out.printf("%d\t%d\t", F[i][j], sign[i][j]);
             }
             System.out.print('\n');
         }
@@ -54,7 +54,7 @@ public class Investment {
         return F[numProject - 1][maxMoney];
     }
 
-    public static int[][] prepare2(){
+    public static int[][] prepare2() {
         int benefit[][];
         benefit = new int[3][];
         benefit[0] = new int[]{2, 4, 7, 11};
@@ -84,7 +84,8 @@ public class Investment {
         }
         return F[numProject - 1][maxMoney];
     }
-    public static int[][] prepare(){
+
+    public static int[][] prepare() {
         int benefit[][];
         benefit = new int[4][];
         benefit[0] = new int[]{0, 11, 12, 13, 14, 15};

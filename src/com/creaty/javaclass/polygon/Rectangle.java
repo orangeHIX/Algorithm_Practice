@@ -23,8 +23,8 @@ public class Rectangle extends Polygon {
         return width * length;
     }
 
-    public static void main(String[] args){
-        Polygon p = new Rectangle(3,4);
-        System.out.println(""+p.getArea()+", "+p.getPerimeter());
+    public static void main(String[] args) {
+        Polygon p = new Rectangle(3, 4);
+        System.out.println("" + p.getArea() + ", " + p.getPerimeter());
     }
 }

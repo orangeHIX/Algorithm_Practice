@@ -19,9 +19,12 @@ public class MyJSONObject {
         return new MyJSONObject(o).getJSONString();
     }
 
-    /**给定JSON字符串创建指定对象
+    /**
+     * 给定JSON字符串创建指定对象
+     *
      * @param cla        JSON字符串表示的对象所从属的类
-     * @param jsonString 给定的JSON字符串*/
+     * @param jsonString 给定的JSON字符串
+     */
     public static Object toObject(Class<?> cla, String jsonString) {
         return new MyJSONObject(cla, jsonString).getObject();
     }

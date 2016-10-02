@@ -9,6 +9,8 @@ import java.util.List;
 @WebService
 public interface HelloWorld {
     String sayHi(/*@WebParam(name="text")*/String text);
+
     User sayHiToUser(User user);
+
     String[] SayHiToUserList(List<User> userList);
 }

@@ -15,70 +15,70 @@ import java.util.List;
  */
 public class StudentManagerRPC implements IStudentManager {
 
-    public static final String IP_ADDRESS ="127.0.0.1";
+    public static final String IP_ADDRESS = "127.0.0.1";
     public static final int SOCKET_PORT = 1234;
 
     @Override
     public boolean addStudent(Student student) {
-        return (boolean)invoke("addStudent", new Class[]{Student.class}, student);
+        return (boolean) invoke("addStudent", new Class[]{Student.class}, student);
     }
 
     @Override
     public boolean removeStudent(Student student) {
-        return (boolean)invoke("removeStudent", new Class[]{Student.class}, student);
+        return (boolean) invoke("removeStudent", new Class[]{Student.class}, student);
     }
 
     @Override
     public boolean removeStudentByID(String ID) {
-        return (boolean)invoke("removeStudentByID", new Class[]{String.class}, ID);
+        return (boolean) invoke("removeStudentByID", new Class[]{String.class}, ID);
     }
 
     @Override
     public boolean removeStudentByTel(String tel) {
-        return (boolean)invoke("removeStudentByTel", new Class[]{String.class}, tel);
+        return (boolean) invoke("removeStudentByTel", new Class[]{String.class}, tel);
     }
 
     @Override
     public boolean removeStudentByName(String name) {
-        return (boolean)invoke("removeStudentByName", new Class[]{String.class}, name);
+        return (boolean) invoke("removeStudentByName", new Class[]{String.class}, name);
     }
 
     @Override
     public Student updateStudentID(String ID, String newID) {
-        return (Student)invoke("updateStudentID",new Class[]{String.class, String.class}, ID, newID);
+        return (Student) invoke("updateStudentID", new Class[]{String.class, String.class}, ID, newID);
     }
 
     @Override
     public Student updateStudentName(String ID, String newName) {
-        return (Student)invoke("updateStudentName",new Class[]{String.class, String.class}, ID, newName);
+        return (Student) invoke("updateStudentName", new Class[]{String.class, String.class}, ID, newName);
     }
 
     @Override
     public Student updateStudentTel(String ID, String newTel) {
-        return (Student)invoke("updateStudentTel",new Class[]{String.class, String.class}, ID, newTel);
+        return (Student) invoke("updateStudentTel", new Class[]{String.class, String.class}, ID, newTel);
     }
 
     @Override
     public Student findStudentByID(String id) {
-        return (Student)invoke("findStudentByID",new Class[]{String.class}, id);
+        return (Student) invoke("findStudentByID", new Class[]{String.class}, id);
     }
 
     @Override
     public List<Student> findStudentByTel(String tel) {
-        return (List<Student>)invoke("findStudentByTel",new Class[]{String.class}, tel);
+        return (List<Student>) invoke("findStudentByTel", new Class[]{String.class}, tel);
     }
 
     @Override
     public List<Student> findStudentByName(String name) {
-        return (List<Student>)invoke("findStudentByName",new Class[]{String.class}, name);
+        return (List<Student>) invoke("findStudentByName", new Class[]{String.class}, name);
     }
 
     @Override
     public String getStudentListString() {
-        return (String)invoke("getStudentListString", null, null);
+        return (String) invoke("getStudentListString", null, null);
     }
 
-    private Object invoke(String name, Class[] parameterTypes, Object ...parameters){
+    private Object invoke(String name, Class[] parameterTypes, Object... parameters) {
         Method method = null;
         try {
             method = IStudentManager.class.getMethod(name, parameterTypes);
@@ -87,7 +87,7 @@ public class StudentManagerRPC implements IStudentManager {
         }
 
         Object result = null;
-        if(method != null) {
+        if (method != null) {
             try (Socket socket = new Socket(IP_ADDRESS, SOCKET_PORT);
                  ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
                  ObjectInputStream input = new ObjectInputStream(socket.getInputStream())
@@ -100,14 +100,14 @@ public class StudentManagerRPC implements IStudentManager {
                 result = input.readObject();
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e){
+            } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
         return result;
     }
 
-    public void printStudentList(){
+    public void printStudentList() {
         System.out.println(getStudentListString());
     }
 

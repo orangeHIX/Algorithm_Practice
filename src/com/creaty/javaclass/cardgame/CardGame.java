@@ -12,7 +12,7 @@ public abstract class CardGame {
     ArrayList<Player> playerList;
 
 
-    public static void shuffle(List list){
+    public static void shuffle(List list) {
         Random random = new Random();
         int size = list.size();
         Object temp;
