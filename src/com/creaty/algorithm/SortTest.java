@@ -2,7 +2,13 @@ package com.creaty.algorithm;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Created by hyx on 2016/4/13.
@@ -11,25 +17,44 @@ public class SortTest {
 
     @Test
     public void testInsertSort() throws Exception {
-        int[] a = {6, 1, 2, 7, 9, 1, 4, 5, 10, 8, -2};
-        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+        Random ran = new Random();
+        int[] a = new int[1024];
+        for(int i=0; i < a.length; i++) {
+            a[i] = ran.nextInt(2048);
+        }
         Sort.insertSort(a);
-        assertArrayEquals(a, b);
+        assertTrue(isAscending(a));
     }
 
     @Test
     public void testMergeSort() throws Exception {
-        int[] a = {6, 1, 2, 7, 9, 1, 4, 5, 10, 8, -2};
-        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+        Random ran = new Random();
+        int[] a = new int[1024];
+        for(int i=0; i < a.length; i++) {
+            a[i] = ran.nextInt(2048);
+        }
         Sort.mergeSort(a);
-        assertArrayEquals(a, b);
+        assertTrue(isAscending(a));
     }
 
     @Test
     public void testQuickSort() throws Exception {
-        int[] a = {6, 1, 2, 7, 9, 1, 4, 5, 10, 8, -2};
-        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+        Random ran = new Random();
+        int[] a = new int[1024];
+        for(int i=0; i < a.length; i++) {
+            a[i] = ran.nextInt(2048);
+        }
         Sort.quickSort(a);
-        assertArrayEquals(a, b);
+        assertTrue(isAscending(a));
+    }
+
+
+    private boolean isAscending(int[] comparables){
+        for( int i = 0; i < comparables.length-1; i++){
+            if(comparables[i]-comparables[i+1] > 0){
+                return false;
+            }
+        }
+        return true;
     }
 }

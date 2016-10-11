@@ -1,15 +1,17 @@
 package com.creaty.algorithm;
 
-import java.util.Arrays;
-
 /**
  * Created by hyx on 2016/4/13.
  */
 public class Sort {
 
     public static void insertSort(int arr[]) {
+        insertSort(arr, 0, arr.length - 1);
+    }
+
+    public static void insertSort(int arr[], int p, int r) {
         int i, j;
-        for (i = 1; i < arr.length; i++) {
+        for (i = p + 1; i < r + 1; i++) {
             int tmp = arr[i];
             for (j = i - 1; j >= 0 && tmp < arr[j]; j--) {
                 arr[j + 1] = arr[j];
@@ -58,42 +60,46 @@ public class Sort {
         quickSort(arr, 0, arr.length - 1);
     }
 
+    private static final int CUTOFF = 10;
+
     public static void quickSort(int arr[], int p, int r) {
-        if (p < r) {
-            int q = partition(arr, p, r);
-            System.out.println("" + q + "," + Arrays.toString(arr));
-            int tmp = arr[p];
-            arr[p] = arr[q];
-            arr[q] = tmp;
-            quickSort(arr, p, q - 1);
-            quickSort(arr, q + 1, r);
+        if (r - p < CUTOFF ) {
+            insertSort(arr, p, r);
+            return;
         }
+        int q = partition(arr, p, r);
+        quickSort(arr, p, q - 1);
+        quickSort(arr, q + 1, r);
+
     }
 
     protected static int partition(int arr[], int p, int r) {
         int x = arr[p];
         int i = p, j = r + 1;
         while (true) {
-            do {
-                j = j - 1;
-            } while (arr[j] >= x);
-            do {
-                i = i + 1;
-            } while (arr[i] < x);
-            if (i < j) {
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-            } else {
-                return j;
+            while (arr[++i] < x) {
+                if (i == r) break;
             }
+            while (x < arr[--j]) {
+                if (j == p) break;
+            }
+            if (i >= j) break;
+            exch(arr, i, j);
         }
+        exch(arr, p, j);
+        return j;
+    }
+
+    public static void exch(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     public static void main(String[] args) {
-        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
-        int[] a = new int[b.length];
-        System.arraycopy(b, 0, a, 3, 5);
-        System.out.println(Arrays.toString(a));
+//        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+//        int[] a = new int[b.length];
+//        System.arraycopy(b, 0, a, 3, 5);
+//        System.out.println(Arrays.toString(a));
     }
 }
