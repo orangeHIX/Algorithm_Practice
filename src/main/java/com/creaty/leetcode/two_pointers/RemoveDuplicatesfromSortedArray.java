@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.two_pointers;
 
 import java.util.Arrays;
 

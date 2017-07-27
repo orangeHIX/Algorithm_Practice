@@ -1,5 +1,8 @@
 package com.creaty.algorithm;
 
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * Created by hyx on 2016/4/13.
  */
@@ -96,10 +99,66 @@ public class Sort {
         arr[j] = tmp;
     }
 
+    public static void quickSort2(int arr[], int i, int j){
+        if(i < j) {
+            int low = i - 1, high = j;
+            int pivot = arr[high];
+            for (int k = i; k < high; k++) {
+                if (arr[k] < pivot) {
+                    low++;
+                    exch(arr, low, k);
+                }
+            }
+            exch(arr, low + 1, high);
+            quickSort2(arr, i, low + 1 - 1);
+            quickSort2(arr, low + 1 + 1, j);
+        }
+    }
+
+    public static void threeWayQuickSort(int arr[]){threeWayQuickSort(arr,0,arr.length-1);}
+    public static void threeWayQuickSort(int arr[], int i, int j){
+        if(i < j) {
+            int low = i, mid = i, high = j;
+            int pivot = arr[high];
+            while(mid <= high){
+                if(arr[mid] < pivot){
+                    exch(arr, low, mid);
+                    low++;
+                    mid++;
+                }else if(arr[mid] == pivot){
+                    mid++;
+                }else{
+                    exch(arr, mid, high);
+                    high--;
+                }
+            }
+            quickSort2(arr, i, low - 1);
+            quickSort2(arr, mid, j);
+        }
+    }
+
+    static void shuffleArray(int[] ar)
+    {
+        // If running on Java 6 or older, use `new Random()` on RHS here
+        Random rnd = ThreadLocalRandom.current();
+        for (int i = ar.length - 1; i > 0; i--)
+        {
+            int index = rnd.nextInt(i + 1);
+            // Simple swap
+            int a = ar[index];
+            ar[index] = ar[i];
+            ar[i] = a;
+        }
+    }
+
     public static void main(String[] args) {
-//        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+        int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
+        shuffleArray(b);
 //        int[] a = new int[b.length];
 //        System.arraycopy(b, 0, a, 3, 5);
 //        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(b));
+        threeWayQuickSort(b, 0, b.length-1);
+        System.out.println(Arrays.toString(b));
     }
 }

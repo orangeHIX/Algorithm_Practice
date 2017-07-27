@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.two_pointers;
 
 /**
  * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
