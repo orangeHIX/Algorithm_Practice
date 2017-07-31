@@ -13,6 +13,10 @@ public class CombinationSum2 {
     int[] occurrence;
     List<List<Integer>> solutions = new ArrayList<>();
 
+    public static void main(String[] args) {
+        System.out.println(new CombinationSum2().combinationSum(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
+    }
+
     private List<Integer> getResultSet() {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < candidates.length; i++) {
@@ -22,7 +26,6 @@ public class CombinationSum2 {
         }
         return list;
     }
-
 
     private void addNumFromCandidates(int index, int sum) {
         if (sum == target) {
@@ -52,9 +55,5 @@ public class CombinationSum2 {
 
         addNumFromCandidates(0, 0);
         return solutions;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new CombinationSum2().combinationSum(new int[]{10, 1, 2, 7, 6, 1, 5}, 8));
     }
 }

@@ -32,6 +32,12 @@ public class N_Queens {
     int[] columnOfEachRow;
     List<List<String>> solutions = new ArrayList<>();
 
+    public static void main(String[] args) {
+        N_Queens n_queens = new N_Queens();
+
+        System.out.println(n_queens.solveNQueens(8).size());
+    }
+
     private ArrayList<String> getSolution() {
         ArrayList<String> list = new ArrayList<>();
         StringBuilder sb;
@@ -81,11 +87,5 @@ public class N_Queens {
         placeQueen(0);
 
         return solutions;
-    }
-
-    public static void main(String[] args) {
-        N_Queens n_queens = new N_Queens();
-
-        System.out.println(n_queens.solveNQueens(8).size());
     }
 }

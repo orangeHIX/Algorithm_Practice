@@ -16,6 +16,46 @@ public class StudentManagerInMemory implements IStudentManager {
         studentArrayList = new ArrayList<>();
     }
 
+    public static void main(String[] args) throws RemoteException {
+        StudentManagerInMemory sm = new StudentManagerInMemory();
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("李四", "002", "124"));
+        sm.addStudent(new Student("王五", "003", "125"));
+        sm.addStudent(new Student("赵六", "004", "126"));
+        sm.addStudent(new Student("张三", "005", "126"));
+        sm.printStudentList();
+
+        System.out.println("============findtest========================");
+
+        System.out.println(sm.findStudentByID("000"));
+        System.out.println(sm.findStudentByID("001"));
+        System.out.println(sm.findStudentByID("005"));
+
+        System.out.println(sm.findStudentByName("Micheal"));
+        System.out.println(sm.findStudentByName("张三"));
+        System.out.println(sm.findStudentByName("赵六"));
+
+        System.out.println(sm.findStudentByTel("123"));
+        System.out.println(sm.findStudentByTel("126"));
+        System.out.println(sm.findStudentByTel("122"));
+
+        System.out.println("============removetest========================");
+
+        sm.removeStudentByID("001");
+        sm.printStudentList();
+
+        sm.removeStudentByID("000");
+        sm.printStudentList();
+
+
+        sm.removeStudentByTel("126");
+        sm.printStudentList();
+
+        sm.removeStudentByName("张三");
+        sm.printStudentList();
+    }
+
     @Override
     public boolean addStudent(Student student) {
         if (findStudentByID(student.ID) == null) {
@@ -103,49 +143,8 @@ public class StudentManagerInMemory implements IStudentManager {
         System.out.println(getStudentListString());
     }
 
-
     @Override
     public String toString() {
         return "studentList=" + studentArrayList;
-    }
-
-    public static void main(String[] args) throws RemoteException {
-        StudentManagerInMemory sm = new StudentManagerInMemory();
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("李四", "002", "124"));
-        sm.addStudent(new Student("王五", "003", "125"));
-        sm.addStudent(new Student("赵六", "004", "126"));
-        sm.addStudent(new Student("张三", "005", "126"));
-        sm.printStudentList();
-
-        System.out.println("============findtest========================");
-
-        System.out.println(sm.findStudentByID("000"));
-        System.out.println(sm.findStudentByID("001"));
-        System.out.println(sm.findStudentByID("005"));
-
-        System.out.println(sm.findStudentByName("Micheal"));
-        System.out.println(sm.findStudentByName("张三"));
-        System.out.println(sm.findStudentByName("赵六"));
-
-        System.out.println(sm.findStudentByTel("123"));
-        System.out.println(sm.findStudentByTel("126"));
-        System.out.println(sm.findStudentByTel("122"));
-
-        System.out.println("============removetest========================");
-
-        sm.removeStudentByID("001");
-        sm.printStudentList();
-
-        sm.removeStudentByID("000");
-        sm.printStudentList();
-
-
-        sm.removeStudentByTel("126");
-        sm.printStudentList();
-
-        sm.removeStudentByName("张三");
-        sm.printStudentList();
     }
 }

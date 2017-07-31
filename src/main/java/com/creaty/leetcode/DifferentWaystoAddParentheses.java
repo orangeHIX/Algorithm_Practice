@@ -35,6 +35,7 @@ import java.util.HashMap;
 public class DifferentWaystoAddParentheses {
 
     private static HashMap<String, ArrayList<Integer>> dpMap = new HashMap<>();
+    private static char[] operators = {'+', '-', '*'};
 
     public static ArrayList<Integer> split(String expression) {
 
@@ -67,9 +68,6 @@ public class DifferentWaystoAddParentheses {
         }
         return result;
     }
-
-    private static char[] operators = {'+', '-', '*'};
-
 
     private static int calculate(int left, int right, char operator) {
         if (operator == '+') {

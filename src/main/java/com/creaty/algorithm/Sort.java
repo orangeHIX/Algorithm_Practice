@@ -1,12 +1,15 @@
 package com.creaty.algorithm;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Created by hyx on 2016/4/13.
  */
 public class Sort {
+
+    private static final int CUTOFF = 10;
 
     public static void insertSort(int arr[]) {
         insertSort(arr, 0, arr.length - 1);
@@ -63,10 +66,8 @@ public class Sort {
         quickSort(arr, 0, arr.length - 1);
     }
 
-    private static final int CUTOFF = 10;
-
     public static void quickSort(int arr[], int p, int r) {
-        if (r - p < CUTOFF ) {
+        if (r - p < CUTOFF) {
             insertSort(arr, p, r);
             return;
         }
@@ -99,8 +100,8 @@ public class Sort {
         arr[j] = tmp;
     }
 
-    public static void quickSort2(int arr[], int i, int j){
-        if(i < j) {
+    public static void quickSort2(int arr[], int i, int j) {
+        if (i < j) {
             int low = i - 1, high = j;
             int pivot = arr[high];
             for (int k = i; k < high; k++) {
@@ -115,19 +116,22 @@ public class Sort {
         }
     }
 
-    public static void threeWayQuickSort(int arr[]){threeWayQuickSort(arr,0,arr.length-1);}
-    public static void threeWayQuickSort(int arr[], int i, int j){
-        if(i < j) {
+    public static void threeWayQuickSort(int arr[]) {
+        threeWayQuickSort(arr, 0, arr.length - 1);
+    }
+
+    public static void threeWayQuickSort(int arr[], int i, int j) {
+        if (i < j) {
             int low = i, mid = i, high = j;
             int pivot = arr[high];
-            while(mid <= high){
-                if(arr[mid] < pivot){
+            while (mid <= high) {
+                if (arr[mid] < pivot) {
                     exch(arr, low, mid);
                     low++;
                     mid++;
-                }else if(arr[mid] == pivot){
+                } else if (arr[mid] == pivot) {
                     mid++;
-                }else{
+                } else {
                     exch(arr, mid, high);
                     high--;
                 }
@@ -137,12 +141,10 @@ public class Sort {
         }
     }
 
-    static void shuffleArray(int[] ar)
-    {
+    static void shuffleArray(int[] ar) {
         // If running on Java 6 or older, use `new Random()` on RHS here
         Random rnd = ThreadLocalRandom.current();
-        for (int i = ar.length - 1; i > 0; i--)
-        {
+        for (int i = ar.length - 1; i > 0; i--) {
             int index = rnd.nextInt(i + 1);
             // Simple swap
             int a = ar[index];
@@ -158,7 +160,7 @@ public class Sort {
 //        System.arraycopy(b, 0, a, 3, 5);
 //        System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(b));
-        threeWayQuickSort(b, 0, b.length-1);
+        threeWayQuickSort(b, 0, b.length - 1);
         System.out.println(Arrays.toString(b));
     }
 }

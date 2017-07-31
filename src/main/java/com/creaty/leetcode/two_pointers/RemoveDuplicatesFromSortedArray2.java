@@ -14,16 +14,15 @@ package com.creaty.leetcode.two_pointers;
  */
 public class RemoveDuplicatesFromSortedArray2 {
     public int removeDuplicates(int[] nums) {
-        if(nums == null) return 0;
-        if(nums.length < 3) return nums.length;
+        if (nums == null) return 0;
+        if (nums.length < 3) return nums.length;
         int i = 1, j = 1;
         int count = 1;
-        for(;j < nums.length; j++){
-            if (nums[j] != nums[j-1]) {
+        for (; j < nums.length; j++) {
+            if (nums[j] != nums[j - 1]) {
                 count = 1;
                 nums[i++] = nums[j];
-            }
-            else {
+            } else {
                 if (count < 2) {
                     nums[i++] = nums[j];
                     count++;

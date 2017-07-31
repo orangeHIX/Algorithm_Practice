@@ -12,6 +12,13 @@ import java.util.Arrays;
  * Created by hyx on 2015/11/5.
  */
 public class ThreeSumClosest {
+    public static void main(String[] args) {
+
+        int[] nums = new int[]{1, 1, 1, 0};
+        //int target = 9;
+        System.out.println(new ThreeSumClosest().threeSumClosest(nums, -100));
+    }
+
     public int threeSumClosest(int[] nums, int target) {
 
         Arrays.sort(nums);
@@ -53,12 +60,5 @@ public class ThreeSumClosest {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-
-        int[] nums = new int[]{1, 1, 1, 0};
-        //int target = 9;
-        System.out.println(new ThreeSumClosest().threeSumClosest(nums, -100));
     }
 }

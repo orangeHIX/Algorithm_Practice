@@ -22,6 +22,13 @@ import java.util.HashMap;
 public class IsomorphicStrings {
 
 
+    public static void main(String[] args) {
+        IsomorphicStrings is = new IsomorphicStrings();
+        System.out.println(is.isIsomorphic3("egg", "add"));
+        System.out.println(is.isIsomorphic3("foo", "bar"));
+        System.out.println(is.isIsomorphic3("paper", "title"));
+    }
+
     public boolean isIsomorphic(String s, String t) {
         return half(s, t) && half(t, s);
     }
@@ -97,13 +104,5 @@ public class IsomorphicStrings {
             }
         }
         return true;
-    }
-
-
-    public static void main(String[] args) {
-        IsomorphicStrings is = new IsomorphicStrings();
-        System.out.println(is.isIsomorphic3("egg", "add"));
-        System.out.println(is.isIsomorphic3("foo", "bar"));
-        System.out.println(is.isIsomorphic3("paper", "title"));
     }
 }

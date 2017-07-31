@@ -82,6 +82,34 @@ class TestClass {
         this.testClass2 = testclass2;
     }
 
+    public static void main(String[] args) {
+        try {
+            TestClass t = new TestClass((byte) 1, (short) 1, 1, 1, 1.0f, 1.0, 'a', true,
+                    (byte) 1, (short) 1, 1, 1l, 1.0f, 1.0, 'a', true,
+                    "str", new int[]{1, 2, 3});
+
+            String josnString = MyJSONObject.toJSONString(t);
+            System.out.println(josnString);
+
+
+            TestClass t2 = (TestClass) MyJSONObject.toObject(TestClass.class, josnString);
+            System.out.println(t2);
+
+            TestClass t3 = new TestClass((byte) 1, (short) 1, 1, 1, 1.0f, 1.0, 'a', true,
+                    (byte) 1, (short) 1, 1, 1l, 1.0f, 1.0, 'a', true,
+                    "str", new int[]{1, 2, 3}, t);
+
+            String jsonString2 = MyJSONObject.toJSONString(t3);
+            System.out.println(jsonString2);
+
+
+            TestClass t4 = (TestClass) MyJSONObject.toObject(TestClass.class, jsonString2);
+            System.out.println(t4);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public byte getA() {
         return a;
     }
@@ -257,34 +285,6 @@ class TestClass {
                 ", array=" + Arrays.toString(array) +
                 ", testClass2=" + testClass2 +
                 '}';
-    }
-
-    public static void main(String[] args) {
-        try {
-            TestClass t = new TestClass((byte) 1, (short) 1, 1, 1, 1.0f, 1.0, 'a', true,
-                    (byte) 1, (short) 1, 1, 1l, 1.0f, 1.0, 'a', true,
-                    "str", new int[]{1, 2, 3});
-
-            String josnString = MyJSONObject.toJSONString(t);
-            System.out.println(josnString);
-
-
-            TestClass t2 = (TestClass) MyJSONObject.toObject(TestClass.class, josnString);
-            System.out.println(t2);
-
-            TestClass t3 = new TestClass((byte) 1, (short) 1, 1, 1, 1.0f, 1.0, 'a', true,
-                    (byte) 1, (short) 1, 1, 1l, 1.0f, 1.0, 'a', true,
-                    "str", new int[]{1, 2, 3}, t);
-
-            String jsonString2 = MyJSONObject.toJSONString(t3);
-            System.out.println(jsonString2);
-
-
-            TestClass t4 = (TestClass) MyJSONObject.toObject(TestClass.class, jsonString2);
-            System.out.println(t4);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

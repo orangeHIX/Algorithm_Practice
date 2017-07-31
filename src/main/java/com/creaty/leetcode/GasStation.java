@@ -13,6 +13,10 @@ package com.creaty.leetcode;
  * Created by hyx on 2015/11/1.
  */
 public class GasStation {
+    public static void main(String[] args) {
+        System.out.println(new GasStation().canCompleteCircuit(new int[]{2}, new int[]{1}));
+    }
+
     public int canCompleteCircuit2(int[] gas, int[] cost) {
         int n = gas.length;
         int tank = 0;
@@ -48,9 +52,5 @@ public class GasStation {
         } else {
             return start;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new GasStation().canCompleteCircuit(new int[]{2}, new int[]{1}));
     }
 }

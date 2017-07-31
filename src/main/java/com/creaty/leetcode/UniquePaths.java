@@ -11,6 +11,14 @@ package com.creaty.leetcode;
  */
 public class UniquePaths {
 
+    public static void main(String[] args) {
+        // write your code here
+        System.out.println(new UniquePaths().uniquePaths(1, 1));
+        System.out.println(new UniquePaths().uniquePaths2(36, 7));
+        System.out.println(new UniquePaths().uniquePaths2_1(36, 7));
+        System.out.println(new UniquePaths().uniquePaths2_2(1, 1));
+    }
+
     public int uniquePaths(int m, int n) {
         int N = n + m - 2;// how much steps we need to do
         int k = m - 1; // number of steps that need to go down
@@ -91,13 +99,5 @@ public class UniquePaths {
 //            pre = temp;
         }
         return cur[m - 1];
-    }
-
-    public static void main(String[] args) {
-        // write your code here
-        System.out.println(new UniquePaths().uniquePaths(1, 1));
-        System.out.println(new UniquePaths().uniquePaths2(36, 7));
-        System.out.println(new UniquePaths().uniquePaths2_1(36, 7));
-        System.out.println(new UniquePaths().uniquePaths2_2(1, 1));
     }
 }

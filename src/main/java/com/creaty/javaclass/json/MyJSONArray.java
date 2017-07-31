@@ -14,11 +14,10 @@ class MyJSONArray {
             Float.class, Double.class, Boolean.class, String.class};
     private static final Class[] baseClasses = {byte.class, short.class, int.class, long.class,
             float.class, double.class, boolean.class};
-
+    List<String> JSONStringArray;
     private Object o;
     private Class cla;
     private String JSONString;
-    List<String> JSONStringArray;
 
     public MyJSONArray(Object o) {
 

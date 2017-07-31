@@ -19,16 +19,6 @@ public class WashMachine extends Context {
         setState(new IdleClose());
     }
 
-    @Override
-    protected void leave() {
-
-    }
-
-    public void dosomething(Object event) {
-        state.handle(this, event);
-    }
-
-
     public static void main(String[] args) {
         ArrayList<String> events = new ArrayList<>();
         events.add(OPEN_DOOR);
@@ -62,5 +52,14 @@ public class WashMachine extends Context {
         WashMachine machine = new WashMachine();
         events.stream().forEach(machine::dosomething);
 
+    }
+
+    @Override
+    protected void leave() {
+
+    }
+
+    public void dosomething(Object event) {
+        state.handle(this, event);
     }
 }

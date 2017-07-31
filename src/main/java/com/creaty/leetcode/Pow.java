@@ -5,6 +5,44 @@ package com.creaty.leetcode;
  */
 public class Pow {
 
+    public static void main(String[] args) {
+        Pow pow = new Pow();
+        long start;
+        long end;
+        double result = 0;
+        start = System.currentTimeMillis();
+        result = pow.myPow(1.00001,
+                123456);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+
+        start = System.currentTimeMillis();
+        result = pow.myPow2(1.00001,
+                123456);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+//        start = System.currentTimeMillis();
+//        result = sqrt.InvSqrt(2147395599);
+//        end = System.currentTimeMillis();
+//        System.out.println("" + result + " time: " + (end - start));
+//
+//        start = System.currentTimeMillis();
+//        result = sqrt.sqrtByNewton(2147395599);
+//        end = System.currentTimeMillis();
+//        System.out.println("" + result + " time: " + (end - start));
+//
+
+        start = System.currentTimeMillis();
+        result = Math.pow(1.00001,
+                123456);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        //System.out.println(Math.sqrt(7));
+    }
+
     public double myPow(double x, int n) {
 
         if (n == 0) {
@@ -63,43 +101,5 @@ public class Pow {
             f = f * f;
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        Pow pow = new Pow();
-        long start;
-        long end;
-        double result = 0;
-        start = System.currentTimeMillis();
-        result = pow.myPow(1.00001,
-                123456);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-
-        start = System.currentTimeMillis();
-        result = pow.myPow2(1.00001,
-                123456);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-//        start = System.currentTimeMillis();
-//        result = sqrt.InvSqrt(2147395599);
-//        end = System.currentTimeMillis();
-//        System.out.println("" + result + " time: " + (end - start));
-//
-//        start = System.currentTimeMillis();
-//        result = sqrt.sqrtByNewton(2147395599);
-//        end = System.currentTimeMillis();
-//        System.out.println("" + result + " time: " + (end - start));
-//
-
-        start = System.currentTimeMillis();
-        result = Math.pow(1.00001,
-                123456);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        //System.out.println(Math.sqrt(7));
     }
 }

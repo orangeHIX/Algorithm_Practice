@@ -12,6 +12,11 @@ public abstract class CardGame {
     ArrayList<Player> playerList;
 
 
+    public CardGame() {
+        cardList = new ArrayList<>();
+        playerList = new ArrayList<>();
+    }
+
     public static void shuffle(List list) {
         Random random = new Random();
         int size = list.size();
@@ -24,9 +29,11 @@ public abstract class CardGame {
         }
     }
 
-    public CardGame() {
-        cardList = new ArrayList<>();
-        playerList = new ArrayList<>();
+    public static void main(String[] args) {
+        CardGame cg = new Landlords();
+        cg.printCarList();
+        cg.shuffle();
+        cg.printCarList();
     }
 
     protected void addOneDeckOfCard() {
@@ -69,12 +76,5 @@ public abstract class CardGame {
 
     public void printGame() {
         playerList.forEach(System.out::println);
-    }
-
-    public static void main(String[] args) {
-        CardGame cg = new Landlords();
-        cg.printCarList();
-        cg.shuffle();
-        cg.printCarList();
     }
 }

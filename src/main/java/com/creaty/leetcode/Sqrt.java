@@ -6,6 +6,39 @@ package com.creaty.leetcode;
 public class Sqrt {
     static double eps = 1e-4;
 
+    public static void main(String[] args) {
+        Sqrt sqrt = new Sqrt();
+        long start;
+        long end;
+        double result = 0;
+        start = System.currentTimeMillis();
+        result = sqrt.mySqrt(2147395599);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        start = System.currentTimeMillis();
+        result = sqrt.InvSqrt(2147395599);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        start = System.currentTimeMillis();
+        result = sqrt.sqrtByNewton(2147395599);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        start = System.currentTimeMillis();
+        result = sqrt.sqrtBitManipulation(2147395599);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        start = System.currentTimeMillis();
+        result = Math.sqrt(2147395599);
+        end = System.currentTimeMillis();
+        System.out.println("" + result + " time: " + (end - start));
+
+        //System.out.println(Math.sqrt(7));
+    }
+
     public double mySqrt(int x) {
         double low = 0;
         double high = x;
@@ -56,38 +89,5 @@ public class Sqrt {
             bit >>= 1;
         }
         return (int) ans;
-    }
-
-    public static void main(String[] args) {
-        Sqrt sqrt = new Sqrt();
-        long start;
-        long end;
-        double result = 0;
-        start = System.currentTimeMillis();
-        result = sqrt.mySqrt(2147395599);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        start = System.currentTimeMillis();
-        result = sqrt.InvSqrt(2147395599);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        start = System.currentTimeMillis();
-        result = sqrt.sqrtByNewton(2147395599);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        start = System.currentTimeMillis();
-        result = sqrt.sqrtBitManipulation(2147395599);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        start = System.currentTimeMillis();
-        result = Math.sqrt(2147395599);
-        end = System.currentTimeMillis();
-        System.out.println("" + result + " time: " + (end - start));
-
-        //System.out.println(Math.sqrt(7));
     }
 }

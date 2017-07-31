@@ -6,17 +6,11 @@ package com.creaty.javaclass.json;
  */
 class MyJSONStringTokener {
 
-    static MyJSONStringTokener newInstance(String JSONString) {
-        return new MyJSONStringTokener(JSONString);
-    }
-
     private String subStr;
     private int tokenStart;
     private boolean hasNext;
-
     private char[] stack;
     private int top;
-
     private MyJSONStringTokener(String JSONString) {
         JSONString = JSONString.trim();
         if ((JSONString.startsWith("{") && JSONString.endsWith("}"))
@@ -31,6 +25,10 @@ class MyJSONStringTokener {
                 tokenStart = 0;
             }
         }
+    }
+
+    static MyJSONStringTokener newInstance(String JSONString) {
+        return new MyJSONStringTokener(JSONString);
     }
 
     public String next() {

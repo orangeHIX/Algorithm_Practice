@@ -18,6 +18,46 @@ public class StudentManagerRPC implements IStudentManager {
     public static final String IP_ADDRESS = "127.0.0.1";
     public static final int SOCKET_PORT = 1234;
 
+    public static void main(String[] args) {
+        StudentManagerRPC sm = new StudentManagerRPC();
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("李四", "002", "124"));
+        sm.addStudent(new Student("王五", "003", "125"));
+        sm.addStudent(new Student("赵六", "004", "126"));
+        sm.addStudent(new Student("张三", "005", "126"));
+        sm.printStudentList();
+
+        System.out.println("============findtest========================");
+
+        System.out.println(sm.findStudentByID("000"));
+        System.out.println(sm.findStudentByID("001"));
+        System.out.println(sm.findStudentByID("005"));
+
+        System.out.println(sm.findStudentByName("Micheal"));
+        System.out.println(sm.findStudentByName("张三"));
+        System.out.println(sm.findStudentByName("赵六"));
+
+        System.out.println(sm.findStudentByTel("123"));
+        System.out.println(sm.findStudentByTel("126"));
+        System.out.println(sm.findStudentByTel("122"));
+
+        System.out.println("============removetest========================");
+
+        sm.removeStudentByID("001");
+        sm.printStudentList();
+
+        sm.removeStudentByID("000");
+        sm.printStudentList();
+
+
+        sm.removeStudentByTel("126");
+        sm.printStudentList();
+
+        sm.removeStudentByName("张三");
+        sm.printStudentList();
+    }
+
     @Override
     public boolean addStudent(Student student) {
         return (boolean) invoke("addStudent", new Class[]{Student.class}, student);
@@ -109,45 +149,5 @@ public class StudentManagerRPC implements IStudentManager {
 
     public void printStudentList() {
         System.out.println(getStudentListString());
-    }
-
-    public static void main(String[] args) {
-        StudentManagerRPC sm = new StudentManagerRPC();
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("李四", "002", "124"));
-        sm.addStudent(new Student("王五", "003", "125"));
-        sm.addStudent(new Student("赵六", "004", "126"));
-        sm.addStudent(new Student("张三", "005", "126"));
-        sm.printStudentList();
-
-        System.out.println("============findtest========================");
-
-        System.out.println(sm.findStudentByID("000"));
-        System.out.println(sm.findStudentByID("001"));
-        System.out.println(sm.findStudentByID("005"));
-
-        System.out.println(sm.findStudentByName("Micheal"));
-        System.out.println(sm.findStudentByName("张三"));
-        System.out.println(sm.findStudentByName("赵六"));
-
-        System.out.println(sm.findStudentByTel("123"));
-        System.out.println(sm.findStudentByTel("126"));
-        System.out.println(sm.findStudentByTel("122"));
-
-        System.out.println("============removetest========================");
-
-        sm.removeStudentByID("001");
-        sm.printStudentList();
-
-        sm.removeStudentByID("000");
-        sm.printStudentList();
-
-
-        sm.removeStudentByTel("126");
-        sm.printStudentList();
-
-        sm.removeStudentByName("张三");
-        sm.printStudentList();
     }
 }

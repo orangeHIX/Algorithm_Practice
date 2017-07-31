@@ -2,7 +2,6 @@ package com.creaty.leetcode;
 
 import com.creaty.leetcode.utility.ListNode;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -11,17 +10,17 @@ import java.util.PriorityQueue;
  */
 public class MergeKSortedLists {
     public static ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((l1,l2)->l1.val-l2.val);
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>((l1, l2) -> l1.val - l2.val);
         ListNode head = new ListNode(0);
         ListNode p = head;
-        for(ListNode l : lists){
-            if(l != null) minHeap.offer(l);
+        for (ListNode l : lists) {
+            if (l != null) minHeap.offer(l);
         }
-        while(minHeap.size() > 1){
+        while (minHeap.size() > 1) {
             ListNode n = minHeap.poll();
             p.next = n;
             p = p.next;
-            if(n.next!= null){
+            if (n.next != null) {
                 minHeap.offer(n.next);
             }
         }

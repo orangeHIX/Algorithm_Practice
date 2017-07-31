@@ -37,6 +37,10 @@ public class CombinationSum3 {
     int count;
     List<List<Integer>> solutions = new ArrayList<>();
 
+    public static void main(String[] args) {
+        System.out.println(new CombinationSum3().combinationSum3(3, 7));
+    }
+
     private List<Integer> getResultSet() {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < candidates.length; i++) {
@@ -46,7 +50,6 @@ public class CombinationSum3 {
         }
         return list;
     }
-
 
     private void addNumFromCandidates(int index, int sum) {
         if (sum == target && count == k) {
@@ -79,9 +82,5 @@ public class CombinationSum3 {
 
         addNumFromCandidates(0, 0);
         return solutions;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new CombinationSum3().combinationSum3(3, 7));
     }
 }

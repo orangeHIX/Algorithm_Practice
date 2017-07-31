@@ -23,6 +23,12 @@ package com.creaty.leetcode;
  * Created by hyx on 2015/11/8.
  */
 public class UniquePaths2 {
+    public static void main(String[] args) {
+        int[][] obstacleGrid = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        System.out.println(new UniquePaths2().uniquePathsWithObstacles(obstacleGrid));
+        System.out.println(new UniquePaths2().uniquePathsWithObstacles(new int[][]{{0, 1}}));
+    }
+
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
 
         int row = obstacleGrid.length;
@@ -48,11 +54,5 @@ public class UniquePaths2 {
             }
         }
         return cur[row - 1];
-    }
-
-    public static void main(String[] args) {
-        int[][] obstacleGrid = new int[][]{{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
-        System.out.println(new UniquePaths2().uniquePathsWithObstacles(obstacleGrid));
-        System.out.println(new UniquePaths2().uniquePathsWithObstacles(new int[][]{{0, 1}}));
     }
 }

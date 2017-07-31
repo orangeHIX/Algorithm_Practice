@@ -16,6 +16,12 @@ public class Upgrade extends CardGame {
         tableCards = new ArrayList<>();
     }
 
+    public static void main(String[] args) {
+        CardGame cg = new Upgrade();
+        cg.begin();
+        cg.printGame();
+    }
+
     @Override
     protected void begin() {
         addOneDeckOfCard();
@@ -61,11 +67,5 @@ public class Upgrade extends CardGame {
     public void printGame() {
         super.printGame();
         System.out.println("底牌：" + tableCards);
-    }
-
-    public static void main(String[] args) {
-        CardGame cg = new Upgrade();
-        cg.begin();
-        cg.printGame();
     }
 }

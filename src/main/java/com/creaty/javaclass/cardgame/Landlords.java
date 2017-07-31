@@ -9,6 +9,12 @@ public class Landlords extends CardGame {
 
     Player landlord;
 
+    public static void main(String[] args) {
+        CardGame cg = new Landlords();
+        cg.begin();
+        cg.printGame();
+    }
+
     @Override
     protected void begin() {
         addOneDeckOfCard();
@@ -40,12 +46,5 @@ public class Landlords extends CardGame {
         landlord.receiveCard(cardList.get(cardList.size() - 1));
         landlord.receiveCard(cardList.get(cardList.size() - 2));
         landlord.receiveCard(cardList.get(cardList.size() - 3));
-    }
-
-
-    public static void main(String[] args) {
-        CardGame cg = new Landlords();
-        cg.begin();
-        cg.printGame();
     }
 }

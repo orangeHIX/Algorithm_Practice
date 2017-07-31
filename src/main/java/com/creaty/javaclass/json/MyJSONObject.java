@@ -10,33 +10,12 @@ import java.util.Map;
  * Created by hyx on 2015/12/8.
  */
 public class MyJSONObject {
-    /**
-     * 给定对象创建JSON字符串
-     *
-     * @param o 给定的对象
-     */
-    public static String toJSONString(Object o) {
-        return new MyJSONObject(o).getJSONString();
-    }
-
-    /**
-     * 给定JSON字符串创建指定对象
-     *
-     * @param cla        JSON字符串表示的对象所从属的类
-     * @param jsonString 给定的JSON字符串
-     */
-    public static Object toObject(Class<?> cla, String jsonString) {
-        return new MyJSONObject(cla, jsonString).getObject();
-    }
-
-
     private Class cla;
     private Method[] methods;
     private Field[] fields;
     private Object o;
     private Map<String, String> jsonPairs;
     private String jsonString;
-
     /**
      * 给定JSON字符串创建MyJSONObject对象
      *
@@ -59,7 +38,6 @@ public class MyJSONObject {
             }
         }
     }
-
     /**
      * 给定对象创建MyJSONObject对象
      *
@@ -79,6 +57,25 @@ public class MyJSONObject {
                 e.printStackTrace();
             }
         }
+    }
+
+    /**
+     * 给定对象创建JSON字符串
+     *
+     * @param o 给定的对象
+     */
+    public static String toJSONString(Object o) {
+        return new MyJSONObject(o).getJSONString();
+    }
+
+    /**
+     * 给定JSON字符串创建指定对象
+     *
+     * @param cla        JSON字符串表示的对象所从属的类
+     * @param jsonString 给定的JSON字符串
+     */
+    public static Object toObject(Class<?> cla, String jsonString) {
+        return new MyJSONObject(cla, jsonString).getObject();
     }
 
     private Object buildObject() {

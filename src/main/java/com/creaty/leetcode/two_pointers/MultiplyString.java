@@ -13,7 +13,7 @@ package com.creaty.leetcode.two_pointers;
  */
 public class MultiplyString {
     public static String multiply(String num1, String num2) {
-        if("0".equals(num1)||"0".equals(num2)) return "0";
+        if ("0".equals(num1) || "0".equals(num2)) return "0";
         int[] result = new int[num1.length() + num2.length()];
         for (int i = 0; i < num1.length(); i++) {
             for (int j = 0; j < num2.length(); j++) {
@@ -21,20 +21,20 @@ public class MultiplyString {
             }
         }
         for (int i = result.length - 1; i > 0; i--) {
-            result[i-1] += result[i] / 10;
+            result[i - 1] += result[i] / 10;
             result[i] = result[i] % 10;
         }
         StringBuilder sb = new StringBuilder();
         int start = 0;
-        while(start < result.length && result[start] == 0) start++;
+        while (start < result.length && result[start] == 0) start++;
         for (int i = start; i < result.length; i++) {
             sb.append(result[i]);
         }
-        if(sb.length() == 0) sb.append(0);
+        if (sb.length() == 0) sb.append(0);
         return sb.toString();
     }
 
-    public static void main(String[] args){
-        System.out.println(multiply("98","9"));
+    public static void main(String[] args) {
+        System.out.println(multiply("98", "9"));
     }
 }

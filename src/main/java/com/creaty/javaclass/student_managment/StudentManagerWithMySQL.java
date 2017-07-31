@@ -11,25 +11,6 @@ public class StudentManagerWithMySQL implements IStudentManager {
 
     public static final String TABLE_NAME = "students";
 
-    Connection connection;
-
-    PreparedStatement addStatement;
-
-    PreparedStatement removeStatement;
-    PreparedStatement removeByIDStatement;
-    PreparedStatement removeByNameStatement;
-    PreparedStatement removeByTelStatement;
-
-    PreparedStatement updateIDStatement;
-    PreparedStatement updateNameStatement;
-    PreparedStatement updateTelStatement;
-
-    PreparedStatement findAllStatement;
-    PreparedStatement findByIDStatement;
-    PreparedStatement findByNameStatement;
-    PreparedStatement findByTelStatement;
-
-
     static {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -37,6 +18,20 @@ public class StudentManagerWithMySQL implements IStudentManager {
             e.printStackTrace();
         }
     }
+
+    Connection connection;
+    PreparedStatement addStatement;
+    PreparedStatement removeStatement;
+    PreparedStatement removeByIDStatement;
+    PreparedStatement removeByNameStatement;
+    PreparedStatement removeByTelStatement;
+    PreparedStatement updateIDStatement;
+    PreparedStatement updateNameStatement;
+    PreparedStatement updateTelStatement;
+    PreparedStatement findAllStatement;
+    PreparedStatement findByIDStatement;
+    PreparedStatement findByNameStatement;
+    PreparedStatement findByTelStatement;
 
     public StudentManagerWithMySQL() {
         super();
@@ -59,6 +54,46 @@ public class StudentManagerWithMySQL implements IStudentManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        StudentManagerWithMySQL sm = new StudentManagerWithMySQL();
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("张三", "001", "123"));
+        sm.addStudent(new Student("李四", "002", "124"));
+        sm.addStudent(new Student("王五", "003", "125"));
+        sm.addStudent(new Student("赵六", "004", "126"));
+        sm.addStudent(new Student("张三", "005", "126"));
+        sm.printStudentList();
+
+        System.out.println("============findtest========================");
+
+        System.out.println(sm.findStudentByID("000"));
+        System.out.println(sm.findStudentByID("001"));
+        System.out.println(sm.findStudentByID("005"));
+
+        System.out.println(sm.findStudentByName("Micheal"));
+        System.out.println(sm.findStudentByName("张三"));
+        System.out.println(sm.findStudentByName("赵六"));
+
+        System.out.println(sm.findStudentByTel("123"));
+        System.out.println(sm.findStudentByTel("126"));
+        System.out.println(sm.findStudentByTel("122"));
+
+        System.out.println("============removetest========================");
+
+        sm.removeStudentByID("001");
+        sm.printStudentList();
+
+        sm.removeStudentByID("000");
+        sm.printStudentList();
+
+
+        sm.removeStudentByTel("126");
+        sm.printStudentList();
+
+        sm.removeStudentByName("李四");
+        sm.printStudentList();
     }
 
     @Override
@@ -129,7 +164,6 @@ public class StudentManagerWithMySQL implements IStudentManager {
         }
         return false;
     }
-
 
     private Student updateStudentField(PreparedStatement statement, String ID, String field) {
         if (statement != null && ID != null && field != null) {
@@ -214,45 +248,5 @@ public class StudentManagerWithMySQL implements IStudentManager {
     @Override
     public String toString() {
         return getStudentListString();
-    }
-
-    public static void main(String[] args) {
-        StudentManagerWithMySQL sm = new StudentManagerWithMySQL();
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("张三", "001", "123"));
-        sm.addStudent(new Student("李四", "002", "124"));
-        sm.addStudent(new Student("王五", "003", "125"));
-        sm.addStudent(new Student("赵六", "004", "126"));
-        sm.addStudent(new Student("张三", "005", "126"));
-        sm.printStudentList();
-
-        System.out.println("============findtest========================");
-
-        System.out.println(sm.findStudentByID("000"));
-        System.out.println(sm.findStudentByID("001"));
-        System.out.println(sm.findStudentByID("005"));
-
-        System.out.println(sm.findStudentByName("Micheal"));
-        System.out.println(sm.findStudentByName("张三"));
-        System.out.println(sm.findStudentByName("赵六"));
-
-        System.out.println(sm.findStudentByTel("123"));
-        System.out.println(sm.findStudentByTel("126"));
-        System.out.println(sm.findStudentByTel("122"));
-
-        System.out.println("============removetest========================");
-
-        sm.removeStudentByID("001");
-        sm.printStudentList();
-
-        sm.removeStudentByID("000");
-        sm.printStudentList();
-
-
-        sm.removeStudentByTel("126");
-        sm.printStudentList();
-
-        sm.removeStudentByName("李四");
-        sm.printStudentList();
     }
 }

@@ -9,9 +9,8 @@ import java.util.List;
  */
 public class Player {
 
-    private List<Card> cardlist;
-
     public String name;
+    private List<Card> cardlist;
 
     public Player(String name) {
         cardlist = new ArrayList<>();

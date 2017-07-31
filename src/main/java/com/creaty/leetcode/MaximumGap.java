@@ -16,6 +16,10 @@ import java.util.Arrays;
 public class MaximumGap {
     static int byteLength = 8;
 
+    public static void main(String[] args) {
+        new MaximumGap().maximumGap2(new int[]{1, 1000000});
+    }
+
     public int maximumGap(int[] nums) {
         if (nums.length <= 0) {
             return 0;
@@ -101,9 +105,5 @@ public class MaximumGap {
         }
         System.out.println(gap);
         return gap;
-    }
-
-    public static void main(String[] args) {
-        new MaximumGap().maximumGap2(new int[]{1, 1000000});
     }
 }

@@ -7,9 +7,8 @@ import java.util.RandomAccess;
 
 public class Cards<T> {
 
-    private static Random r;
     private static final int SHUFFLE_THRESHOLD = 5;
-
+    private static Random r;
 
     public static void shuffle(List<?> list) {
         if (r == null) {

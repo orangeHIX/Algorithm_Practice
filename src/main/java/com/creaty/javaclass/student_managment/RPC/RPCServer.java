@@ -29,6 +29,10 @@ public class RPCServer {
         return services;
     }
 
+    public static void main(String[] args) {
+        new RPCServer().runServer();
+    }
+
     public void runServer() {
         ServerSocket server = null;
         try {
@@ -50,10 +54,6 @@ public class RPCServer {
                 e.printStackTrace();
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new RPCServer().runServer();
     }
 
 }

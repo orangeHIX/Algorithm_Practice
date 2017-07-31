@@ -30,6 +30,10 @@ public class CombinationSum {
     int[] occurrence;
     List<List<Integer>> solutions = new ArrayList<>();
 
+    public static void main(String[] args) {
+        System.out.println(new CombinationSum().combinationSum(new int[]{2, 3, 6, 7}, 7));
+    }
+
     private void addNumFromCandidates(int index, LinkedList<Integer> set, int sum) {
         if (index < candidates.length) {
             LinkedList<Integer> newSet = new LinkedList<>(set);
@@ -82,9 +86,5 @@ public class CombinationSum {
 
         addNumFromCandidates(0, 0);
         return solutions;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new CombinationSum().combinationSum(new int[]{2, 3, 6, 7}, 7));
     }
 }

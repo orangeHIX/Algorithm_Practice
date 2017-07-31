@@ -7,6 +7,16 @@ import java.util.HashMap;
  */
 public class FractiontoRecurringDecimal {
 
+    public static void main(String[] args) {
+        FractiontoRecurringDecimal frd = new FractiontoRecurringDecimal();
+        System.out.println(frd.fractionToDeciaml(1, 2));
+        System.out.println(frd.fractionToDeciaml(2, 1));
+        System.out.println(frd.fractionToDeciaml(1, 3));
+        System.out.println(frd.fractionToDeciaml(11, 7));
+        System.out.println(frd.fractionToDeciaml(-50, 8));
+        System.out.println(frd.fractionToDeciaml(-1, -2147483648));
+    }
+
     public String fractionToDeciaml(int numerator, int denominator) {
 
         if (numerator == 0) {
@@ -55,15 +65,5 @@ public class FractiontoRecurringDecimal {
         }
 
         return stringBuilder.toString();
-    }
-
-    public static void main(String[] args) {
-        FractiontoRecurringDecimal frd = new FractiontoRecurringDecimal();
-        System.out.println(frd.fractionToDeciaml(1, 2));
-        System.out.println(frd.fractionToDeciaml(2, 1));
-        System.out.println(frd.fractionToDeciaml(1, 3));
-        System.out.println(frd.fractionToDeciaml(11, 7));
-        System.out.println(frd.fractionToDeciaml(-50, 8));
-        System.out.println(frd.fractionToDeciaml(-1, -2147483648));
     }
 }

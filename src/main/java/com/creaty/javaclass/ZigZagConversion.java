@@ -15,6 +15,10 @@ package com.creaty.javaclass;
  * Created by hyx on 2015/11/9.
  */
 public class ZigZagConversion {
+    public static void main(String[] args) {
+        System.out.println(new ZigZagConversion().convert("ABCDEFGHIJKLMN", 3));
+    }
+
     public String convert(String s, int numRows) {
         if (numRows < 2)
             return s;
@@ -49,9 +53,5 @@ public class ZigZagConversion {
         for (int idx = 1; idx < sb.length; idx++)
             sb[0].append(sb[idx]);
         return sb[0].toString();
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new ZigZagConversion().convert("ABCDEFGHIJKLMN", 3));
     }
 }

@@ -13,6 +13,15 @@ package com.creaty.leetcode;
  */
 public class KthLargestElementinArray {
 
+    public static void main(String[] args) {
+        /* write your code here */
+        int[] nums = new int[]{3, 2, 1, 5, 6, 4};
+        //System.out.println(new KthLargestElementinArray().partition(nums, 0, nums.length - 1)+", "+Arrays.toString(nums) );
+        System.out.println(new KthLargestElementinArray().findKthLargest(nums, 4));
+//        int[] nums2 = new int[]{2, 1};
+//        System.out.println(new KthLargestElementinArray().findKthLargest(nums, 1));
+    }
+
     public int partition(int[] nums, int l, int r) {
         int i, j, x, temp;
         i = l;
@@ -48,14 +57,5 @@ public class KthLargestElementinArray {
 
     public int findKthLargest(int[] nums, int k) {
         return findKthLargest(nums, 0, nums.length - 1, k);
-    }
-
-    public static void main(String[] args) {
-        /* write your code here */
-        int[] nums = new int[]{3, 2, 1, 5, 6, 4};
-        //System.out.println(new KthLargestElementinArray().partition(nums, 0, nums.length - 1)+", "+Arrays.toString(nums) );
-        System.out.println(new KthLargestElementinArray().findKthLargest(nums, 4));
-//        int[] nums2 = new int[]{2, 1};
-//        System.out.println(new KthLargestElementinArray().findKthLargest(nums, 1));
     }
 }

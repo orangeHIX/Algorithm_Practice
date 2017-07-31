@@ -14,11 +14,6 @@ import java.util.Scanner;
  */
 public class Console {
 
-    private IStudentManager studentManager;
-    private List<Student> curr;
-    Scanner scanner;
-    PrintStream printStream;
-
     public static final String DESCIPTION = "Welcome!\nYou can use this student management system by command:\n" +
             "1. \"add\" command: add one student.  e.g.\"add Micheal 20150299 13658996591\"\n" +
             "2. \"remove\" command: remove one student by some means, such as \"name(-n)\", \"id(-i)\" and \"tel(-t)\"" +
@@ -47,6 +42,11 @@ public class Console {
         options = new String[]{BY_ID, BY_NAME, BY_TEL};
     }
 
+    Scanner scanner;
+    PrintStream printStream;
+    private IStudentManager studentManager;
+    private List<Student> curr;
+
     public Console() {
         this(new StudentManagerInMemory(), System.in, System.out);
     }
@@ -65,6 +65,11 @@ public class Console {
         }
     }
 
+    public static void main(String[] args) {
+        Console console = new Console(new StudentManagerInMemory());
+        console.start();
+    }
+
     public void start() {
         if (scanner != null) {
             log(DESCIPTION);
@@ -79,7 +84,6 @@ public class Console {
             logError("scanner is null!");
         }
     }
-
 
     private void addStudent(String... args) throws RemoteException {
         if (args.length > 1) {
@@ -187,11 +191,6 @@ public class Console {
             logError("missing necessary arguments..." + Arrays.toString(args) + " e.g.\"find -i 20150295\"");
         }
     }
-
-    private void printStudent(String... args) throws RemoteException {
-        log("student list: ");
-        log(studentManager.getStudentListString());
-    }
 //
 //    private boolean checkArguments(String[] args, String expectCommand) {
 //        if (args.length > 0 && args[0] == expectCommand) {
@@ -199,6 +198,11 @@ public class Console {
 //        }
 //        return false;
 //    }
+
+    private void printStudent(String... args) throws RemoteException {
+        log("student list: ");
+        log(studentManager.getStudentListString());
+    }
 
     private void handleInputArgs() throws RemoteException {
         String command;
@@ -245,10 +249,5 @@ public class Console {
 
     public void logError(String info) {
         log("error: " + info);
-    }
-
-    public static void main(String[] args) {
-        Console console = new Console(new StudentManagerInMemory());
-        console.start();
     }
 }

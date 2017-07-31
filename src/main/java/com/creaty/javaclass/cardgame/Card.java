@@ -5,6 +5,37 @@ package com.creaty.javaclass.cardgame;
  */
 public class Card {
 
+    CardSuit suit;
+    CardPip pip;
+    CardJoker joker;
+
+    public Card(CardSuit suit, CardPip pip) {
+        this.suit = suit;
+        this.pip = pip;
+    }
+    public Card(CardJoker joker) {
+        this.joker = joker;
+    }
+
+    public int getValue() {
+        if (joker == null) {
+            return pip.ordinal() * 4 + suit.ordinal();
+        } else {
+            return -1 - joker.ordinal();
+        }
+    }
+
+    @Override
+    public String toString() {
+        if (joker == null) {
+            return "(" + suit +
+                    ", " + pip +
+                    ')';
+        } else {
+            return "(" + joker + ")";
+        }
+    }
+
     //黑桃、方块、梅花和红桃。
     public enum CardSuit {
 
@@ -50,39 +81,6 @@ public class Card {
         @Override
         public String toString() {
             return name;
-        }
-    }
-
-    CardSuit suit;
-    CardPip pip;
-    CardJoker joker;
-
-
-    public Card(CardSuit suit, CardPip pip) {
-        this.suit = suit;
-        this.pip = pip;
-    }
-
-    public Card(CardJoker joker) {
-        this.joker = joker;
-    }
-
-    public int getValue() {
-        if (joker == null) {
-            return pip.ordinal() * 4 + suit.ordinal();
-        } else {
-            return -1 - joker.ordinal();
-        }
-    }
-
-    @Override
-    public String toString() {
-        if (joker == null) {
-            return "(" + suit +
-                    ", " + pip +
-                    ')';
-        } else {
-            return "(" + joker + ")";
         }
     }
 }

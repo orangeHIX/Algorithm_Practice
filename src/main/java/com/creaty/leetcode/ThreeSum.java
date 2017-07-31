@@ -22,6 +22,12 @@ import java.util.List;
  * Created by hyx on 2015/11/5.
  */
 public class ThreeSum {
+    public static void main(String[] args) {
+        int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
+        //int target = 9;
+        System.out.println(new ThreeSum().threeSum(nums));
+    }
+
     public List<List<Integer>> threeSum(int[] nums) {
         if (nums == null || nums.length < 3)
             return new ArrayList<List<Integer>>();
@@ -49,11 +55,5 @@ public class ThreeSum {
             }
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = new int[]{-1, 0, 1, 2, -1, -4};
-        //int target = 9;
-        System.out.println(new ThreeSum().threeSum(nums));
     }
 }
