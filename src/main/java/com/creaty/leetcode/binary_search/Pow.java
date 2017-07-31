@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.binary_search;
 
 /**
  * Created by hyx on 2015/11/5.

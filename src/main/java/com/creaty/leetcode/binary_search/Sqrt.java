@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.binary_search;
 
 /**
  * Created by hyx on 2015/11/3.
@@ -54,6 +54,20 @@ public class Sqrt {
             mid = (high + low) / 2.0;
         } while (Math.abs(last - mid) > eps);
         return mid;
+    }
+
+    public int mySqrt2(int x) {
+        if(x == 0) return 0;
+        int low = 1, high = x;
+        while(true){
+            int mid = low + (high - low)/2;
+            if(mid > x/mid){
+                high = mid - 1;
+            }else{
+                if(mid+1 > x/(mid+1)) return mid;
+                low = mid + 1;
+            }
+        }
     }
 
     public float sqrtByNewton(float x) {
