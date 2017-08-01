@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.dp;
 
 /**
  * Follow up for "Unique Paths":

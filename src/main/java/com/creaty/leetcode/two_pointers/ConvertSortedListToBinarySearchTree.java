@@ -9,15 +9,15 @@ import com.creaty.leetcode.utility.TreeNode;
  */
 public class ConvertSortedListToBinarySearchTree {
     public TreeNode sortedListToBST(ListNode head) {
-        if(head == null) return null;
+        if (head == null) return null;
         return toBST(head, null);
     }
 
-    public TreeNode toBST(ListNode head, ListNode tail){
+    public TreeNode toBST(ListNode head, ListNode tail) {
 
         ListNode fast = head, slow = head;
-        if(head == tail) return null;
-        while(fast!= tail && fast.next!= tail){
+        if (head == tail) return null;
+        while (fast != tail && fast.next != tail) {
             fast = fast.next.next;
             slow = slow.next;
         }

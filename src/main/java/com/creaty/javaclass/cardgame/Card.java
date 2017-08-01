@@ -13,6 +13,7 @@ public class Card {
         this.suit = suit;
         this.pip = pip;
     }
+
     public Card(CardJoker joker) {
         this.joker = joker;
     }

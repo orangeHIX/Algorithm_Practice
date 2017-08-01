@@ -11,6 +11,7 @@ class MyJSONStringTokener {
     private boolean hasNext;
     private char[] stack;
     private int top;
+
     private MyJSONStringTokener(String JSONString) {
         JSONString = JSONString.trim();
         if ((JSONString.startsWith("{") && JSONString.endsWith("}"))

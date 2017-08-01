@@ -16,6 +16,7 @@ public class MyJSONObject {
     private Object o;
     private Map<String, String> jsonPairs;
     private String jsonString;
+
     /**
      * 给定JSON字符串创建MyJSONObject对象
      *
@@ -38,6 +39,7 @@ public class MyJSONObject {
             }
         }
     }
+
     /**
      * 给定对象创建MyJSONObject对象
      *

@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.dp;
 
 /**
  * A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
