@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.DFS;
 
 import com.creaty.leetcode.utility.TreeNode;
 
