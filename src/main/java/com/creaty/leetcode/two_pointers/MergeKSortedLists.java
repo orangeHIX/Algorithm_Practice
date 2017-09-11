@@ -1,4 +1,4 @@
-package com.creaty.leetcode;
+package com.creaty.leetcode.two_pointers;
 
 import com.creaty.leetcode.utility.ListNode;
 
