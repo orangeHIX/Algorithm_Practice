@@ -153,6 +153,38 @@ public class Sort {
         }
     }
 
+    private static void swap(int[] arr, int i, int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    static void heapify(int[] arr, int n, int i){
+        int largest = i;
+        int l = (i<<1) + 1;
+        int r = (i<<1) + 2;
+        if(l < n && arr[largest] < arr[l]){
+            largest = l;
+        }
+        if(r < n && arr[largest] < arr[r]){
+            largest = r;
+        }
+        if(largest != i){
+            swap(arr, i, largest);
+            heapify(arr, n, largest);
+        }
+    }
+    public static void heapSort(int arr[]) {
+        int n = arr.length;
+        for(int i = n/2-1; i >= 0; i--){
+            heapify(arr, n, i);
+        }
+        for(int i = n-1; i >= 0; i--){
+            swap(arr, 0, i);
+            heapify(arr, i, 0);
+        }
+    }
+
     public static void main(String[] args) {
         int[] b = {-2, 1, 1, 2, 4, 5, 6, 7, 8, 9, 10};
         shuffleArray(b);
@@ -160,7 +192,9 @@ public class Sort {
 //        System.arraycopy(b, 0, a, 3, 5);
 //        System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(b));
-        threeWayQuickSort(b, 0, b.length - 1);
+        //threeWayQuickSort(b, 0, b.length - 1);
+
+        heapSort(b);
         System.out.println(Arrays.toString(b));
     }
 }
