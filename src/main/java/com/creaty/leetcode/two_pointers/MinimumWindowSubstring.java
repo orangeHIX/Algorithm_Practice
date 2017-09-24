@@ -21,17 +21,13 @@ public class MinimumWindowSubstring {
     public static String minWindow(String s, String t) {
         Map<Character, Integer> map = new HashMap<>();
         int count = t.length();
-        int i = 0, j = 0;
+
         int subLen = Integer.MAX_VALUE;
         for (Character c : t.toCharArray()) {
-            if (!map.containsKey(c)) {
-                map.put(c, 1);
-            } else {
-                map.put(c, map.get(c) + 1);
-            }
+            map.merge(c,1, (val, one)->val+one);
         }
 
-        int head = 0;
+        int head = 0, i = 0, j = 0;
         while (j < s.length()) {
             char c = s.charAt(j);
             Integer ci = map.get(c);
